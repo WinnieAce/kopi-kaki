@@ -1118,3 +1118,94 @@ h1:focus {
     transform: translateY(12px);
   }
 }
+
+/* Making mode: one step at a time, large type, readable at arm's length. */
+.making {
+  max-width: 42rem;
+  margin: 0 auto;
+  min-height: 100dvh;
+  padding: var(--space) var(--gutter);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--space);
+}
+.making-top {
+  display: grid;
+  gap: 0.6rem;
+}
+.making-top .back {
+  justify-self: start;
+  text-decoration: none;
+}
+.making-body {
+  position: relative;
+  display: grid; /* the step stretches to fill the space, so it can be swiped from anywhere */
+  overflow-x: clip; /* steps sliding in and out stay inside the screen */
+  font-size: 1.2rem;
+}
+.making-page {
+  display: grid;
+  gap: var(--space);
+  align-content: start;
+  cursor: grab;
+}
+.making-page:active {
+  cursor: grabbing;
+}
+.making-step {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1.2;
+}
+:root[data-room='kopitiam'] .making-step {
+  font-weight: 700;
+}
+.making-body .ingredient-rows li {
+  grid-template-columns: 7rem 1fr;
+}
+.caution {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius);
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.caution .icon {
+  margin-top: 0.1em;
+}
+.technique {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  font-size: 1.02rem;
+}
+.making-actions {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.75rem;
+  padding: 0.75rem 0 calc(0.75rem + env(safe-area-inset-bottom));
+  background: var(--bg);
+}
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.stepper .button {
+  padding-inline: 0.6rem;
+  font-size: 1.2rem;
+}
+.stepper output {
+  min-width: 5.75em; /* a fixed width, so "8 servings" never pushes the buttons onto a new line */
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

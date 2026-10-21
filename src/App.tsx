@@ -5,6 +5,7 @@ import { RouteChange } from './components/RouteChange'
 import { CafeDrinkPage } from './screens/CafeDrinkPage'
 import { CafeRoom } from './screens/CafeRoom'
 import { KopitiamRoom } from './screens/KopitiamRoom'
+import { MakingMode } from './screens/MakingMode'
 import { NotFound } from './screens/NotFound'
 import { OrderPage } from './screens/OrderPage'
 import { Terms } from './screens/Terms'
@@ -28,8 +29,8 @@ export default function App() {
     <>
       <RouteChange />
       <Routes>
-        <Route path="/kopitiam/:id/make" element={<Placeholder name="Making" />} />
-        <Route path="/cafe/:id/make" element={<Placeholder name="Making" />} />
+        <Route path="/kopitiam/:id/make" element={<MakingMode room="kopitiam" />} />
+        <Route path="/cafe/:id/make" element={<MakingMode room="cafe" />} />
         <Route element={<Layout />}>
           <Route path="/" element={<KopitiamRoom />} />
           <Route path="/kopitiam/:id" element={<OrderPage />} />
