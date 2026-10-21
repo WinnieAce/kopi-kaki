@@ -1,0 +1,177 @@
+[
+  {
+    "id": "o",
+    "word": "O",
+    "also": [],
+    "meaning": "No milk. A Kopi O is black coffee with sugar; add Kosong for no sugar too.",
+    "origin": "From the Hokkien word for black.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "milk": "o"
+      }
+    }
+  },
+  {
+    "id": "c",
+    "word": "C",
+    "also": [],
+    "meaning": "Evaporated milk instead of condensed milk, with sugar added separately. Creamier and less sweet than a plain Kopi.",
+    "origin": "Often said to come from the Hainanese word for fresh, or from the Carnation brand of evaporated milk. People still argue about it.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "milk": "c"
+      }
+    }
+  },
+  {
+    "id": "kosong",
+    "word": "Kosong",
+    "also": [],
+    "meaning": "No sugar. Condensed milk is already sweet, so a drink made with it can’t be Kosong; said on its own, “Kopi Kosong” is taken to mean Kopi O Kosong.",
+    "origin": "Malay for empty, or zero.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "milk": "o",
+        "sugar": "kosong"
+      }
+    }
+  },
+  {
+    "id": "siew-dai",
+    "word": "Siew Dai",
+    "also": [],
+    "meaning": "Less sweet: about half the usual sugar or condensed milk.",
+    "origin": "From the Hokkien for less sweet.",
+    "example": {
+      "drinkId": "teh",
+      "choices": {
+        "sugar": "siew-dai"
+      }
+    }
+  },
+  {
+    "id": "ga-dai",
+    "word": "Ga Dai",
+    "also": [],
+    "meaning": "Sweeter: more sugar or condensed milk than usual.",
+    "origin": "From the Hokkien for add sweet.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "sugar": "ga-dai"
+      }
+    }
+  },
+  {
+    "id": "gau",
+    "word": "Gau",
+    "also": [],
+    "meaning": "Stronger: more coffee, tea or Milo in the same cup.",
+    "origin": "From the Hokkien for thick.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "strength": "gau"
+      }
+    }
+  },
+  {
+    "id": "po",
+    "word": "Po",
+    "also": [],
+    "meaning": "Weaker: less coffee or tea and more water. A good way to have less caffeine.",
+    "origin": "From the Hokkien for thin.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "strength": "po"
+      }
+    }
+  },
+  {
+    "id": "di-lo",
+    "word": "Di Lo",
+    "also": [],
+    "meaning": "Undiluted: no water is added after brewing or mixing, so the drink is as strong and rich as it gets.",
+    "origin": "From the Hokkien, roughly “straight from the source”.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "strength": "di-lo"
+      }
+    }
+  },
+  {
+    "id": "peng",
+    "word": "Peng",
+    "also": [
+      "Beng"
+    ],
+    "meaning": "Iced. Kopi Peng, Teh Peng and Milo Peng all come over ice.",
+    "origin": "From the Hokkien word for ice.",
+    "example": {
+      "drinkId": "teh",
+      "choices": {
+        "temp": "peng"
+      }
+    }
+  },
+  {
+    "id": "dabao",
+    "word": "Dabao",
+    "also": [
+      "Ta Pau"
+    ],
+    "meaning": "Takeaway. Add it to the end of your order when you want to take the drink with you; it often comes in a plastic bag with a string handle.",
+    "origin": "From the Cantonese for pack it up."
+  },
+  {
+    "id": "tak-kiu",
+    "word": "Tak Kiu",
+    "also": [],
+    "meaning": "Another name for Milo, still heard at older kopitiams.",
+    "origin": "From the Hokkien for kick ball, after the football players on old Milo tins and adverts.",
+    "example": {
+      "drinkId": "milo",
+      "choices": {}
+    }
+  },
+  {
+    "id": "condensed-milk",
+    "word": "Condensed milk",
+    "also": [],
+    "meaning": "Thick, sweetened milk. A plain Kopi or Teh is made with it unless you ask for O or C.",
+    "origin": "Tinned condensed milk kept well without a fridge, so early kopitiams used it from the start.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {}
+    }
+  },
+  {
+    "id": "evaporated-milk",
+    "word": "Evaporated milk",
+    "also": [],
+    "meaning": "Unsweetened milk cooked down until creamy. It is the C in Kopi C and Teh C.",
+    "origin": "Like condensed milk, it came in tins and kept well in the heat.",
+    "example": {
+      "drinkId": "teh",
+      "choices": {
+        "milk": "c"
+      }
+    }
+  },
+  {
+    "id": "kopi-powder",
+    "word": "Kopi powder",
+    "also": [],
+    "meaning": "The coffee used at kopitiams: mostly robusta, roasted dark with a little sugar and margarine, and ground fine.",
+    "origin": "The roast began as a way to make cheaper beans taste rich. Many families still buy it from the same roaster for years.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {}
+    }
+  }
+]

@@ -3,3 +3,8 @@ dist
 .superpowers/
 graphify-out/
 *.local
+*.log
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store

@@ -1,0 +1,350 @@
+[
+  {
+    "id": "kopi-powder",
+    "name": "Kopi powder",
+    "category": "coffee",
+    "description": "Coffee beans, mostly robusta, roasted dark with a little sugar and margarine and ground fine. Bold, smoky and slightly caramel.",
+    "unit": "g",
+    "caffeineMg": 15,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#3b2416",
+    "caffeineSource": "Robusta coffee is about 2.2% caffeine by weight (International Coffee Organization; Farah, Coffee Constituents, 2012). Allowing for the roasting sugar and about 80% extraction through a sock gives roughly 15 mg per gram.",
+    "termId": "kopi-powder"
+  },
+  {
+    "id": "tea-dust",
+    "name": "Tea dust",
+    "category": "tea",
+    "description": "Finely broken black tea leaves that brew strong, dark and slightly bitter in a few minutes.",
+    "unit": "g",
+    "caffeineMg": 18,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#5a2e14",
+    "caffeineSource": "Black tea leaves are about 2.5–3.5% caffeine by weight (Hicks, McCaig and Fraser, Journal of Food Science, 1996). A strong brew draws out most of it: roughly 18 mg per gram."
+  },
+  {
+    "id": "condensed-milk",
+    "name": "Condensed milk",
+    "category": "milk",
+    "description": "Milk cooked down with sugar until thick and sweet. One spoonful whitens and sweetens a cup at once.",
+    "unit": "tbsp",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy"
+    ],
+    "substitutes": [],
+    "colour": "#f3e3c3",
+    "termId": "condensed-milk"
+  },
+  {
+    "id": "evaporated-milk",
+    "name": "Evaporated milk",
+    "category": "milk",
+    "description": "Milk cooked down without sugar. Creamy and a little toasty, it whitens a drink without sweetening it.",
+    "unit": "tbsp",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy"
+    ],
+    "substitutes": [],
+    "colour": "#f1e6d0",
+    "termId": "evaporated-milk"
+  },
+  {
+    "id": "sugar",
+    "name": "Sugar",
+    "category": "sweetener",
+    "description": "Plain white sugar. It dissolves fastest while the drink is hot.",
+    "unit": "tsp",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#ffffff"
+  },
+  {
+    "id": "boiling-water",
+    "name": "Boiling water",
+    "category": "staple",
+    "description": "Water just off the boil, for brewing.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#dfe8ea"
+  },
+  {
+    "id": "water",
+    "name": "Water",
+    "category": "staple",
+    "description": "Plain water to lengthen the drink: hot for a hot drink, cold for an iced one.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#dfe8ea"
+  },
+  {
+    "id": "ice",
+    "name": "Ice",
+    "category": "staple",
+    "description": "Ice cubes.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#eef6f8"
+  },
+  {
+    "id": "milo-powder",
+    "name": "Milo powder",
+    "category": "malt-and-chocolate",
+    "description": "A malted chocolate drink powder made from barley malt, milk powder and cocoa.",
+    "unit": "tbsp",
+    "caffeineMg": 2,
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
+    "substitutes": [],
+    "colour": "#6b4428",
+    "caffeineSource": "Cocoa powder has about 230 mg of caffeine per 100 g (USDA FoodData Central). Milo is only partly cocoa, giving an estimated 2 mg per tablespoon. To be checked against the tin.",
+    "termId": "tak-kiu"
+  },
+  {
+    "id": "horlicks-powder",
+    "name": "Horlicks powder",
+    "category": "malt-and-chocolate",
+    "description": "A malted milk drink powder made from wheat, barley malt and milk. Sweet, biscuity and caffeine-free.",
+    "unit": "tbsp",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
+    "substitutes": [],
+    "colour": "#d9c39c"
+  },
+  {
+    "id": "pearl-barley",
+    "name": "Pearl barley",
+    "category": "fresh",
+    "description": "Polished barley grains that turn soft as they cook and give their water a gentle, nutty taste.",
+    "unit": "g",
+    "caffeineMg": 0,
+    "allergens": [
+      "gluten"
+    ],
+    "substitutes": [],
+    "colour": "#efe3c6"
+  },
+  {
+    "id": "chrysanthemum",
+    "name": "Dried chrysanthemum flowers",
+    "category": "flavour",
+    "description": "Small dried yellow flowers that brew a golden, floral, faintly honeyed tea with no caffeine.",
+    "unit": "g",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#e5bf4a"
+  },
+  {
+    "id": "water-chestnut",
+    "name": "Water chestnuts",
+    "category": "fresh",
+    "description": "Crisp, sweet corms with a dark skin. Fresh ones need peeling; tinned ones are ready to use.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#efe6d2"
+  },
+  {
+    "id": "calamansi",
+    "name": "Calamansi",
+    "category": "fresh",
+    "description": "Small, round green limes with a fragrant, tangy juice. Ordinary limes can stand in.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#c3cf55"
+  },
+  {
+    "id": "rose-syrup",
+    "name": "Rose syrup",
+    "category": "sweetener",
+    "description": "A bright pink, very sweet syrup with the scent of roses. Check that the label lists only sugar, water, rose flavouring and colouring.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#d8436b"
+  },
+  {
+    "id": "ginger",
+    "name": "Ginger",
+    "category": "fresh",
+    "description": "Fresh ginger root. Warm and peppery, it gives a drink a gentle heat.",
+    "unit": "g",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#d9b66a"
+  },
+  {
+    "id": "soy-milk",
+    "name": "Unsweetened soy milk",
+    "category": "milk",
+    "description": "Plain soy milk with nothing added, from a carton or a soya bean stall.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [
+      "soy"
+    ],
+    "substitutes": [],
+    "colour": "#f1e7cf"
+  },
+  {
+    "id": "pandan-leaf",
+    "name": "Pandan leaf",
+    "category": "flavour",
+    "description": "A long green leaf with a sweet, grassy, vanilla-like scent, tied in a knot to flavour drinks.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#3f8a3a"
+  },
+  {
+    "id": "espresso",
+    "name": "Espresso",
+    "category": "coffee",
+    "description": "A small, strong shot of coffee pressed through finely ground beans, with a golden crema on top.",
+    "unit": "ml",
+    "caffeineMg": 2,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#3b2416",
+    "caffeineSource": "USDA FoodData Central lists brewed espresso at 212 mg of caffeine per 100 g, about 2 mg per millilitre."
+  },
+  {
+    "id": "milk",
+    "name": "Milk",
+    "category": "milk",
+    "description": "Fresh full-cream milk. It steams and froths best cold from the fridge.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy"
+    ],
+    "substitutes": [],
+    "colour": "#fbf6ee"
+  },
+  {
+    "id": "cocoa-powder",
+    "name": "Cocoa powder",
+    "category": "malt-and-chocolate",
+    "description": "Unsweetened cocoa: bitter on its own, rich once sugar and milk join it.",
+    "unit": "tsp",
+    "caffeineMg": 6,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#5a3423",
+    "caffeineSource": "USDA FoodData Central lists unsweetened cocoa powder at 230 mg of caffeine per 100 g; a level teaspoon is about 2.5 g."
+  },
+  {
+    "id": "matcha",
+    "name": "Matcha",
+    "category": "tea",
+    "description": "Green tea leaves ground to a fine, bright green powder. Grassy, a little sweet and a little bitter.",
+    "unit": "g",
+    "caffeineMg": 32,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#7f9a3e",
+    "caffeineSource": "Matcha powders measured 19–44 mg of caffeine per gram (Koláčková et al., Foods, 2020); 32 mg is a middle figure."
+  },
+  {
+    "id": "hojicha",
+    "name": "Hojicha powder",
+    "category": "tea",
+    "description": "Japanese green tea roasted until brown, then ground. Toasty and nutty, with much less caffeine than matcha.",
+    "unit": "g",
+    "caffeineMg": 10,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#8a5434",
+    "caffeineSource": "Roasting drives off much of the caffeine: hojicha infusions measure about 20 mg per 100 ml (Standard Tables of Food Composition in Japan), roughly a third of matcha. About 10 mg per gram of powder is an estimate."
+  },
+  {
+    "id": "black-tea-bag",
+    "name": "Black tea bag",
+    "category": "tea",
+    "description": "A bag of black tea such as breakfast tea or Ceylon.",
+    "unit": "piece",
+    "caffeineMg": 45,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#6a3418",
+    "caffeineSource": "USDA FoodData Central lists brewed black tea at 20 mg of caffeine per 100 ml; one bag makes about 240 ml, roughly 45 mg."
+  },
+  {
+    "id": "earl-grey-tea-bag",
+    "name": "Earl Grey tea bag",
+    "category": "tea",
+    "description": "Black tea scented with bergamot, a citrus fruit, so it smells of orange peel and flowers.",
+    "unit": "piece",
+    "caffeineMg": 40,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#6e4a2a",
+    "caffeineSource": "Earl Grey is black tea, about 20 mg of caffeine per 100 ml brewed (USDA FoodData Central); one bag, about 40 mg."
+  },
+  {
+    "id": "rooibos-tea-bag",
+    "name": "Rooibos tea bag",
+    "category": "tea",
+    "description": "A red herbal tea from South Africa, naturally sweet and with no caffeine.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#a8452c"
+  },
+  {
+    "id": "chai-spice",
+    "name": "Chai spice",
+    "category": "flavour",
+    "description": "A ground mix of cinnamon, ginger, cardamom, clove and black pepper.",
+    "unit": "tsp",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#9b5a2a"
+  },
+  {
+    "id": "vanilla-syrup",
+    "name": "Vanilla syrup",
+    "category": "sweetener",
+    "description": "A sweet syrup flavoured with vanilla. Check that the label lists only sugar, water and flavouring.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#f0dcae"
+  },
+  {
+    "id": "lemon",
+    "name": "Lemon",
+    "category": "fresh",
+    "description": "A fresh lemon, for slices and a squeeze of juice.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#f2df5a"
+  }
+]

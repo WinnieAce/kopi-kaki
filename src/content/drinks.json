@@ -1,0 +1,3096 @@
+[
+  {
+    "blocked": [
+      {
+        "chosen": {
+          "group": "milk",
+          "option": "condensed"
+        },
+        "blocks": {
+          "group": "sugar",
+          "option": "kosong"
+        },
+        "reason": "Condensed milk is already sweet, so it can’t be Kosong. For no sugar, choose O or C."
+      }
+    ],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "kopi",
+    "name": "Kopi",
+    "chinese": "咖啡",
+    "group": "kopi",
+    "meaning": "Coffee",
+    "cup": "kopitiam-cup",
+    "colour": "#c69a6c",
+    "colourByMilk": {
+      "o": "#3b2416",
+      "c": "#b9875f"
+    },
+    "choices": {
+      "milk": {
+        "options": [
+          "condensed",
+          "o",
+          "c"
+        ],
+        "default": "condensed"
+      },
+      "strength": {
+        "options": [
+          "po",
+          "normal",
+          "gau",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "kopi-powder",
+        "amount": 10,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 120,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "condensed"
+          ]
+        }
+      },
+      {
+        "ingredientId": "evaporated-milk",
+        "amount": 1.5,
+        "optional": false,
+        "when": {
+          "milk": [
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "o",
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "water",
+        "amount": 60,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Put the kopi powder in the sock, hold it over a jug and pour the boiling water through it slowly. Let it drip through.",
+        "technique": "brew",
+        "ingredientIds": [
+          "kopi-powder",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Spoon the condensed milk into a cup or jug.",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Spoon the evaporated milk into a cup or jug.",
+        "ingredientIds": [
+          "evaporated-milk"
+        ]
+      },
+      {
+        "text": "Add the sugar.",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Pour the kopi into the cup and stir.",
+        "technique": "stir",
+        "ingredientIds": [],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Stir the kopi in the jug, then fill a glass with the ice and pour it over.",
+        "technique": "stir",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Kopi sock",
+        "alternative": "a fine sieve lined with a paper towel, or a kopi bag steeped like a tea bag"
+      },
+      {
+        "name": "Small jug",
+        "alternative": "a large mug"
+      }
+    ],
+    "about": "Kopitiam coffee is brewed strong through a cloth sock, then softened with sweet condensed milk. The beans are mostly robusta roasted dark with a little sugar and margarine, so the cup is bold and smoky and stands up to the milk."
+  },
+  {
+    "blocked": [
+      {
+        "chosen": {
+          "group": "milk",
+          "option": "condensed"
+        },
+        "blocks": {
+          "group": "sugar",
+          "option": "kosong"
+        },
+        "reason": "Condensed milk is already sweet, so it can’t be Kosong. For no sugar, choose O or C."
+      }
+    ],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "yuan-yang",
+    "name": "Yuan Yang",
+    "chinese": "鸳鸯",
+    "group": "kopi",
+    "meaning": "Coffee and tea",
+    "cup": "kopitiam-cup",
+    "colour": "#a8774f",
+    "colourByMilk": {
+      "o": "#4a2a18",
+      "c": "#a9805a"
+    },
+    "choices": {
+      "milk": {
+        "options": [
+          "condensed",
+          "o",
+          "c"
+        ],
+        "default": "condensed"
+      },
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "kopi-powder",
+        "amount": 5,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "tea-dust",
+        "amount": 1.5,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 120,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "condensed"
+          ]
+        }
+      },
+      {
+        "ingredientId": "evaporated-milk",
+        "amount": 1.5,
+        "optional": false,
+        "when": {
+          "milk": [
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "o",
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "water",
+        "amount": 60,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Put the kopi powder and tea dust in the sock, hold it over a jug and pour the boiling water through them slowly.",
+        "technique": "brew",
+        "ingredientIds": [
+          "kopi-powder",
+          "tea-dust",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Spoon the condensed milk into a cup or jug.",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Spoon the evaporated milk into a cup or jug.",
+        "ingredientIds": [
+          "evaporated-milk"
+        ]
+      },
+      {
+        "text": "Add the sugar.",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Pour the yuan yang into the cup and stir.",
+        "technique": "stir",
+        "ingredientIds": [],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Stir the yuan yang in the jug, then fill a glass with the ice and pour it over.",
+        "technique": "stir",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Kopi sock",
+        "alternative": "a fine sieve lined with a paper towel, or a kopi bag steeped like a tea bag"
+      },
+      {
+        "name": "Small jug",
+        "alternative": "a large mug"
+      }
+    ],
+    "about": "Coffee and tea in one cup, named after a pair of mandarin ducks that are always seen together. The tea softens the coffee’s bitterness and the coffee gives the tea more body."
+  },
+  {
+    "blocked": [
+      {
+        "chosen": {
+          "group": "milk",
+          "option": "condensed"
+        },
+        "blocks": {
+          "group": "sugar",
+          "option": "kosong"
+        },
+        "reason": "Condensed milk is already sweet, so it can’t be Kosong. For no sugar, choose O or C."
+      }
+    ],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "teh",
+    "name": "Teh",
+    "chinese": "茶",
+    "group": "teh",
+    "meaning": "Tea",
+    "cup": "kopitiam-cup",
+    "colour": "#c9905e",
+    "colourByMilk": {
+      "o": "#7a3f1d",
+      "c": "#c99a6e"
+    },
+    "choices": {
+      "milk": {
+        "options": [
+          "condensed",
+          "o",
+          "c"
+        ],
+        "default": "condensed"
+      },
+      "strength": {
+        "options": [
+          "po",
+          "normal",
+          "gau",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "tea-dust",
+        "amount": 3,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 150,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "condensed"
+          ]
+        }
+      },
+      {
+        "ingredientId": "evaporated-milk",
+        "amount": 1.5,
+        "optional": false,
+        "when": {
+          "milk": [
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "o",
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "water",
+        "amount": 50,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Put the tea dust in the sock and pour the boiling water through it into a jug. Let it stand for 3 minutes, then lift the sock out.",
+        "technique": "brew",
+        "ingredientIds": [
+          "tea-dust",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Spoon the condensed milk into a cup or jug.",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Spoon the evaporated milk into a cup or jug.",
+        "ingredientIds": [
+          "evaporated-milk"
+        ]
+      },
+      {
+        "text": "Add the sugar.",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Pour the teh into the cup and stir.",
+        "technique": "stir",
+        "ingredientIds": [],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Stir the teh in the jug, then fill a glass with the ice and pour it over.",
+        "technique": "stir",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Kopi sock",
+        "alternative": "a fine sieve lined with a paper towel, or a kopi bag steeped like a tea bag"
+      },
+      {
+        "name": "Small jug",
+        "alternative": "a large mug"
+      }
+    ],
+    "about": "Strong black tea brewed through a sock, made creamy and sweet with condensed milk. Brewing it dark means the tea still tastes like tea once the milk goes in."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "medium",
+    "id": "teh-tarik",
+    "name": "Teh Tarik",
+    "chinese": "拉茶",
+    "group": "teh",
+    "meaning": "Pulled tea",
+    "cup": "kopitiam-cup",
+    "colour": "#d2a273",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "tea-dust",
+        "amount": 3.5,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 150,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "evaporated-milk",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 30,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Put the tea dust in the sock and pour the boiling water through it into a mug. Let it stand for 3 minutes, then lift the sock out.",
+        "technique": "brew",
+        "ingredientIds": [
+          "tea-dust",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the condensed milk and evaporated milk.",
+        "technique": "stir",
+        "ingredientIds": [
+          "condensed-milk",
+          "evaporated-milk"
+        ]
+      },
+      {
+        "text": "Stir in the water.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ]
+      },
+      {
+        "text": "Pull the tea: pour it from one mug into the other from a little height, back and forth five or six times, until a froth forms on top.",
+        "technique": "pull",
+        "ingredientIds": [],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour it over a glass of ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Two mugs with handles",
+        "alternative": "a jug and a mug"
+      },
+      {
+        "name": "Kopi sock",
+        "alternative": "a tea bag or a fine sieve"
+      }
+    ],
+    "about": "Teh tarik is pulled: poured back and forth between two mugs until it is frothy on top and cool enough to drink. The pulling mixes the milk right through and gives it a smooth, light feel."
+  },
+  {
+    "blocked": [
+      {
+        "chosen": {
+          "group": "milk",
+          "option": "condensed"
+        },
+        "blocks": {
+          "group": "sugar",
+          "option": "kosong"
+        },
+        "reason": "Condensed milk is already sweet, so it can’t be Kosong. For no sugar, choose O or C."
+      }
+    ],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "teh-halia",
+    "name": "Teh Halia",
+    "chinese": "姜茶",
+    "group": "teh",
+    "meaning": "Ginger tea",
+    "cup": "kopitiam-cup",
+    "colour": "#c79466",
+    "colourByMilk": {
+      "o": "#8a4a22",
+      "c": "#c9a06f"
+    },
+    "choices": {
+      "milk": {
+        "options": [
+          "condensed",
+          "o",
+          "c"
+        ],
+        "default": "condensed"
+      },
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "ginger",
+        "amount": 10,
+        "optional": false
+      },
+      {
+        "ingredientId": "tea-dust",
+        "amount": 3,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 180,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "condensed"
+          ]
+        }
+      },
+      {
+        "ingredientId": "evaporated-milk",
+        "amount": 1.5,
+        "optional": false,
+        "when": {
+          "milk": [
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "o",
+            "c"
+          ]
+        }
+      },
+      {
+        "ingredientId": "water",
+        "amount": 30,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Slice the ginger thinly.",
+        "ingredientIds": [
+          "ginger"
+        ],
+        "caution": "sharp"
+      },
+      {
+        "text": "Simmer the ginger in the boiling water for 5 minutes, then pour it through the tea dust in the sock into a jug.",
+        "technique": "brew",
+        "ingredientIds": [
+          "tea-dust",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Spoon the condensed milk into a cup or jug.",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Spoon the evaporated milk into a cup or jug.",
+        "ingredientIds": [
+          "evaporated-milk"
+        ]
+      },
+      {
+        "text": "Add the sugar.",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Pour the teh halia into the cup and stir.",
+        "technique": "stir",
+        "ingredientIds": [],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Stir the teh halia in the jug, then fill a glass with the ice and pour it over.",
+        "technique": "stir",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Small saucepan",
+        "alternative": "a mug of ginger slices topped up from the kettle and left for 10 minutes"
+      },
+      {
+        "name": "Kopi sock",
+        "alternative": "a fine sieve lined with a paper towel, or a kopi bag steeped like a tea bag"
+      }
+    ],
+    "about": "Teh with fresh ginger simmered into it. Halia is the Malay word for ginger. It is warming and a little peppery, a favourite on rainy days."
+  },
+  {
+    "blocked": [
+      {
+        "chosen": {
+          "group": "milk",
+          "option": "milk"
+        },
+        "blocks": {
+          "group": "sugar",
+          "option": "kosong"
+        },
+        "reason": "Milo with milk is made with condensed milk, which is already sweet. For no added sugar, choose O."
+      }
+    ],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "milo",
+    "name": "Milo",
+    "chinese": "美禄",
+    "group": "malt-and-chocolate",
+    "meaning": "Malted chocolate",
+    "cup": "kopitiam-cup",
+    "colour": "#8a5a3c",
+    "colourByMilk": {
+      "o": "#5a3a26"
+    },
+    "choices": {
+      "milk": {
+        "options": [
+          "milk",
+          "o"
+        ],
+        "default": "milk"
+      },
+      "strength": {
+        "options": [
+          "normal",
+          "gau",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "milo-powder",
+        "amount": 3,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 1,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "milk"
+          ]
+        }
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "o"
+          ]
+        }
+      },
+      {
+        "ingredientId": "water",
+        "amount": 120,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Stir the Milo powder into the boiling water until smooth.",
+        "technique": "stir",
+        "ingredientIds": [
+          "milo-powder",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the condensed milk.",
+        "technique": "stir",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Fill a glass with the ice and pour in the Milo.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Teaspoon",
+        "alternative": "any spoon"
+      }
+    ],
+    "about": "Malted chocolate stirred into hot water and sweetened with condensed milk. Gau means more Milo for a thicker cup. Its small amount of caffeine comes from the cocoa."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "milo-dinosaur",
+    "name": "Milo Dinosaur",
+    "group": "malt-and-chocolate",
+    "meaning": "Iced Milo heaped with powder",
+    "cup": "peng-glass",
+    "colour": "#8a5a3c",
+    "choices": {},
+    "ingredients": [
+      {
+        "ingredientId": "milo-powder",
+        "amount": 6,
+        "optional": false,
+        "note": "two-thirds to stir in, the rest to heap on top"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 100,
+        "optional": false,
+        "note": "cold"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Stir two-thirds of the Milo powder into the boiling water until smooth.",
+        "technique": "stir",
+        "ingredientIds": [
+          "milo-powder",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the condensed milk.",
+        "technique": "stir",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Fill a glass with the ice, pour in the Milo and top up with the cold water.",
+        "ingredientIds": [
+          "ice",
+          "water"
+        ]
+      },
+      {
+        "text": "Heap the rest of the Milo powder on top and serve with a spoon.",
+        "ingredientIds": [
+          "milo-powder"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Tall glass",
+        "alternative": "any large glass"
+      }
+    ],
+    "about": "Iced Milo with a mound of dry Milo powder on top, eaten with a spoon as it slowly sinks. A Singapore and Malaysia invention, named for being bigger than the usual."
+  },
+  {
+    "blocked": [
+      {
+        "chosen": {
+          "group": "milk",
+          "option": "milk"
+        },
+        "blocks": {
+          "group": "sugar",
+          "option": "kosong"
+        },
+        "reason": "Horlicks with milk is made with condensed milk, which is already sweet. For no added sugar, choose O."
+      }
+    ],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "horlicks",
+    "name": "Horlicks",
+    "chinese": "好立克",
+    "group": "malt-and-chocolate",
+    "meaning": "Malted milk",
+    "cup": "kopitiam-cup",
+    "colour": "#d9b98f",
+    "colourByMilk": {
+      "o": "#c9a676"
+    },
+    "choices": {
+      "milk": {
+        "options": [
+          "milk",
+          "o"
+        ],
+        "default": "milk"
+      },
+      "strength": {
+        "options": [
+          "normal",
+          "gau",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "hot"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "horlicks-powder",
+        "amount": 3,
+        "optional": false,
+        "role": "strong"
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "condensed-milk",
+        "amount": 1,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "milk"
+          ]
+        }
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false,
+        "role": "sweet",
+        "when": {
+          "milk": [
+            "o"
+          ]
+        }
+      },
+      {
+        "ingredientId": "water",
+        "amount": 120,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Stir the Horlicks powder into the boiling water until smooth.",
+        "technique": "stir",
+        "ingredientIds": [
+          "horlicks-powder",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the condensed milk.",
+        "technique": "stir",
+        "ingredientIds": [
+          "condensed-milk"
+        ]
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Fill a glass with the ice and pour in the Horlicks.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Teaspoon",
+        "alternative": "any spoon"
+      }
+    ],
+    "about": "Malted milk, sweet and biscuity, with no chocolate and no caffeine. A gentle drink for any time of day, and a good one for children."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "barley",
+    "name": "Barley",
+    "chinese": "薏米水",
+    "group": "cooling",
+    "meaning": "Pearl barley water",
+    "cup": "kopitiam-cup",
+    "colour": "#e6d8b8",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "peng"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "pearl-barley",
+        "amount": 25,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 400,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 3,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "water",
+        "amount": 80,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Rinse the pearl barley, then simmer it in the boiling water for 45 minutes until soft. Strain, keeping the water.",
+        "technique": "brew",
+        "ingredientIds": [
+          "pearl-barley",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar while it is still warm.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the water and pour it into a cup.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Let it cool, then stir in the cold water.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Pour it over a glass of ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Saucepan with a lid",
+        "alternative": "a rice cooker on its porridge setting"
+      }
+    ],
+    "about": "Pearl barley simmered in water gives a pale, gently nutty drink. It is usually served cold and lightly sweet, and many people drink it to cool down on a hot day."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "medium",
+    "id": "water-chestnut",
+    "name": "Water Chestnut",
+    "chinese": "马蹄水",
+    "group": "cooling",
+    "meaning": "Water chestnut drink",
+    "cup": "kopitiam-cup",
+    "colour": "#efe6d2",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "peng"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "water-chestnut",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 400,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 3,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "water",
+        "amount": 80,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Peel the water chestnuts and chop them roughly. Tinned ones only need chopping.",
+        "ingredientIds": [
+          "water-chestnut"
+        ],
+        "caution": "sharp"
+      },
+      {
+        "text": "Simmer the chopped water chestnuts in the boiling water for 20 minutes, then strain out the pieces, or keep a few to eat.",
+        "ingredientIds": [
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar until it dissolves.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the water and pour it into a cup.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Let it cool, then stir in the cold water.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Pour it over a glass of ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Saucepan",
+        "alternative": "a large microwave-safe bowl, covered"
+      },
+      {
+        "name": "Sieve",
+        "alternative": "a slotted spoon"
+      }
+    ],
+    "about": "Water chestnuts simmered and lightly sweetened make a clear, delicate drink with a faint natural sweetness. It is one of the classic cooling drinks of the drinks stall."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "chrysanthemum",
+    "name": "Chrysanthemum",
+    "chinese": "菊花茶",
+    "group": "cooling",
+    "meaning": "Chrysanthemum flower tea",
+    "cup": "kopitiam-cup",
+    "colour": "#d9b44a",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "peng"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "chrysanthemum",
+        "amount": 5,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 250,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "water",
+        "amount": 50,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Put the dried flowers in a teapot and pour the boiling water over them. Leave for 5 minutes, then strain.",
+        "technique": "steep",
+        "ingredientIds": [
+          "chrysanthemum",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the water and pour it into a cup.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Let it cool, then stir in the cold water.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Pour it over a glass of ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Teapot",
+        "alternative": "a mug with a saucer on top"
+      },
+      {
+        "name": "Tea strainer",
+        "alternative": "a small sieve"
+      }
+    ],
+    "about": "A golden, floral tea of dried chrysanthemum flowers, with no caffeine at all. Lightly sweetened, it is soothing hot and refreshing iced."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "lime-juice",
+    "name": "Lime Juice",
+    "chinese": "酸柑水",
+    "group": "cooling",
+    "meaning": "Calamansi lime juice",
+    "cup": "peng-glass",
+    "colour": "#c9d77a",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "calamansi",
+        "amount": 6,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 3,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "water",
+        "amount": 200,
+        "optional": false,
+        "role": "dilute",
+        "note": "cold"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Cut the calamansi in half.",
+        "ingredientIds": [
+          "calamansi"
+        ],
+        "caution": "sharp"
+      },
+      {
+        "text": "Squeeze the juice into a jug through a small sieve to catch the seeds.",
+        "ingredientIds": []
+      },
+      {
+        "text": "Stir in the sugar until it dissolves.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the cold water.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ]
+      },
+      {
+        "text": "Pour it over a glass of ice.",
+        "ingredientIds": [
+          "ice"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Small sieve",
+        "alternative": "pick out the seeds with a teaspoon"
+      }
+    ],
+    "about": "Calamansi, the small fragrant limes of the region, squeezed and sweetened into a sharp, refreshing drink. Always served cold."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "bandung",
+    "name": "Bandung",
+    "group": "cooling",
+    "meaning": "Rose milk",
+    "cup": "kopitiam-cup",
+    "colour": "#eaa3b4",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "peng"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "rose-syrup",
+        "amount": 30,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "evaporated-milk",
+        "amount": 4,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 120,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Stir the rose syrup and evaporated milk together until the colour is an even pink.",
+        "technique": "stir",
+        "ingredientIds": [
+          "rose-syrup",
+          "evaporated-milk"
+        ]
+      },
+      {
+        "text": "Top up with the hot water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Add the ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Long spoon",
+        "alternative": "a chopstick"
+      }
+    ],
+    "about": "The pink rose milk found at drink stalls across Singapore. Rose syrup is very sweet and floral, and evaporated milk gives it body without the heaviness of cream."
+  },
+  {
+    "blocked": [],
+    "room": "kopitiam",
+    "difficulty": "easy",
+    "id": "soya-bean-milk",
+    "name": "Soya Bean Milk",
+    "chinese": "豆浆",
+    "group": "cooling",
+    "meaning": "Sweetened soy milk",
+    "cup": "kopitiam-cup",
+    "colour": "#f1e7cf",
+    "choices": {
+      "strength": {
+        "options": [
+          "normal",
+          "di-lo"
+        ],
+        "default": "normal"
+      },
+      "sugar": {
+        "options": [
+          "kosong",
+          "siew-dai",
+          "normal",
+          "ga-dai"
+        ],
+        "default": "normal"
+      },
+      "temp": {
+        "options": [
+          "hot",
+          "peng"
+        ],
+        "default": "peng"
+      }
+    },
+    "ingredients": [
+      {
+        "ingredientId": "soy-milk",
+        "amount": 220,
+        "optional": false
+      },
+      {
+        "ingredientId": "pandan-leaf",
+        "amount": 1,
+        "optional": true
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false,
+        "role": "sweet"
+      },
+      {
+        "ingredientId": "water",
+        "amount": 30,
+        "optional": false,
+        "role": "dilute"
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 6,
+        "optional": false,
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "steps": [
+      {
+        "text": "Tie the pandan leaf into a knot, if you have one.",
+        "ingredientIds": [
+          "pandan-leaf"
+        ]
+      },
+      {
+        "text": "Warm the soy milk with the pandan leaf in a small pot until it just begins to steam. Do not let it boil.",
+        "ingredientIds": [
+          "soy-milk"
+        ],
+        "caution": "hot",
+        "when": {
+          "temp": [
+            "hot"
+          ]
+        }
+      },
+      {
+        "text": "Stir the pandan leaf through the soy milk and leave it in the fridge for 10 minutes.",
+        "ingredientIds": [
+          "soy-milk"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Take out the pandan leaf, if you used one.",
+        "ingredientIds": []
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the water.",
+        "technique": "stir",
+        "ingredientIds": [
+          "water"
+        ]
+      },
+      {
+        "text": "Pour it over a glass of ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      }
+    ],
+    "tools": [
+      {
+        "name": "Small pot",
+        "alternative": "a mug in the microwave, in short bursts"
+      }
+    ],
+    "about": "Smooth soy milk, lightly sweetened and scented with pandan, the way the soya bean stall serves it. It contains soy, and no dairy."
+  },
+  {
+    "id": "long-black",
+    "name": "Long Black",
+    "group": "coffee",
+    "meaning": "Espresso over hot water",
+    "cup": "cafe-cup",
+    "colour": "#3b2416",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "boiling-water",
+        "amount": 100,
+        "optional": false
+      },
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Pour the hot water into the cup.",
+        "ingredientIds": [
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Make a double espresso straight on top, so the crema stays.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ],
+        "caution": "hot"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      }
+    ],
+    "about": "A double espresso poured over hot water. Putting the water in first keeps the crema, the golden foam, on top, so it tastes rounder than coffee topped up the other way.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "latte",
+    "name": "Latte",
+    "group": "coffee",
+    "meaning": "Espresso with plenty of steamed milk",
+    "cup": "cafe-cup",
+    "colour": "#c8a07a",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 200,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into the cup.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a thin layer of foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk into the espresso, finishing with a little foam on top.",
+        "ingredientIds": [],
+        "caution": "hot"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Espresso with lots of steamed milk and a thin cap of foam. The milk softens the coffee, so it is the gentlest of the espresso drinks.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "cappuccino",
+    "name": "Cappuccino",
+    "group": "coffee",
+    "meaning": "Espresso with milk and thick foam",
+    "cup": "cafe-cup",
+    "colour": "#c4986e",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 120,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into the cup.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Steam the milk until hot and glossy, letting in plenty of air for a thick foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour in the milk, then spoon the foam on top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Espresso, steamed milk and a deep layer of foam in roughly equal parts. The foam makes it feel light and keeps it warm.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "flat-white",
+    "name": "Flat White",
+    "group": "coffee",
+    "meaning": "Espresso with velvety milk",
+    "cup": "cafe-cup",
+    "colour": "#b98a5c",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 120,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into the cup.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with only a little air, so it stays silky.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in steadily, finishing with a heart if you can.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "A double espresso with a little velvety milk, so the coffee leads. The milk is thin and silky rather than foamy.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "mocha",
+    "name": "Mocha",
+    "group": "coffee",
+    "meaning": "Chocolate espresso with steamed milk",
+    "cup": "mug",
+    "colour": "#6e4430",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "cocoa-powder",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 180,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into a mug.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the cocoa powder and sugar until smooth.",
+        "technique": "stir",
+        "ingredientIds": [
+          "cocoa-powder",
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in and stir once.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "A latte with chocolate stirred through the espresso. The cocoa adds a little more caffeine of its own.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "iced-latte",
+    "name": "Iced Latte",
+    "group": "coffee",
+    "meaning": "Espresso over cold milk and ice",
+    "cup": "tall-glass",
+    "colour": "#b88a62",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 180,
+        "optional": false,
+        "note": "cold"
+      },
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Fill a tall glass with the ice and pour in the cold milk.",
+        "ingredientIds": [
+          "ice",
+          "milk"
+        ]
+      },
+      {
+        "text": "Make a double espresso and pour it slowly over the milk, so it settles in layers.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ],
+        "caution": "hot"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      }
+    ],
+    "about": "Espresso poured over cold milk and ice, so it drifts down in layers. Stir before drinking, or enjoy watching it mix.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "babyccino",
+    "name": "Babyccino",
+    "group": "coffee",
+    "meaning": "Frothed milk",
+    "cup": "cafe-cup",
+    "colour": "#f3e6d4",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "milk",
+        "amount": 120,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Froth the milk until warm, not hot, then pour it into the cup with the foam on top.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Warm frothed milk in a café cup, with no coffee at all. A treat for children that looks like the grown-ups’ drink.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "matcha-latte",
+    "name": "Matcha Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Whisked green tea with steamed milk",
+    "cup": "mug",
+    "colour": "#9db06a",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "matcha",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 30,
+        "optional": false,
+        "note": "left to cool for a minute"
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 200,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Sift the matcha into a bowl and add the hot water, left to cool for a minute after boiling.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "matcha",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Whisk briskly until smooth and frothy, then stir in the sugar.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk into a mug and pour the matcha in on top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Matcha whisk",
+        "alternative": "a small whisk or a fork, in a wide cup so nothing splashes"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Matcha whisked smooth and topped with steamed milk. Water just off the boil keeps it from tasting bitter.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "iced-matcha-latte",
+    "name": "Iced Matcha Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Whisked green tea over cold milk",
+    "cup": "tall-glass",
+    "colour": "#a9bd7a",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "matcha",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 40,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 180,
+        "optional": false,
+        "note": "cold"
+      }
+    ],
+    "steps": [
+      {
+        "text": "Whisk the matcha and sugar with the water until smooth, with no lumps.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "matcha",
+          "water",
+          "sugar"
+        ]
+      },
+      {
+        "text": "Fill a tall glass with the ice and pour in the cold milk.",
+        "ingredientIds": [
+          "ice",
+          "milk"
+        ]
+      },
+      {
+        "text": "Pour the matcha over the top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Matcha whisk",
+        "alternative": "shake it with the cold water in a small closed jar"
+      }
+    ],
+    "about": "Bright green matcha floating on cold milk and ice. No hot water needed, so it is quick to make.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "hojicha-latte",
+    "name": "Hojicha Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Roasted green tea with steamed milk",
+    "cup": "mug",
+    "colour": "#b07a52",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "hojicha",
+        "amount": 2.5,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 30,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 200,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Whisk the hojicha powder with the boiling water until smooth.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "hojicha",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in over the tea.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Matcha whisk",
+        "alternative": "a small whisk or a fork, in a wide cup so nothing splashes"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Roasted green tea whisked into warm milk. Toasty and gentle, with far less caffeine than coffee.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "chai-latte",
+    "name": "Chai Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Spiced tea with steamed milk",
+    "cup": "mug",
+    "colour": "#c08a5a",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "black-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "chai-spice",
+        "amount": 0.5,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 100,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 150,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the tea bag and chai spice in the boiling water for 4 minutes.",
+        "technique": "steep",
+        "ingredientIds": [
+          "black-tea-bag",
+          "chai-spice",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Lift out the tea bag and stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in over the spiced tea.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Black tea brewed with warm spices, then made creamy with milk. Sweet, fragrant and gently warming.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "london-fog",
+    "name": "London Fog",
+    "group": "tea-and-matcha",
+    "meaning": "Earl Grey with vanilla and steamed milk",
+    "cup": "mug",
+    "colour": "#b7a089",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "earl-grey-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 120,
+        "optional": false
+      },
+      {
+        "ingredientId": "vanilla-syrup",
+        "amount": 10,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 120,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the Earl Grey in the boiling water for 4 minutes, then lift it out.",
+        "technique": "steep",
+        "ingredientIds": [
+          "earl-grey-tea-bag",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the vanilla syrup.",
+        "technique": "stir",
+        "ingredientIds": [
+          "vanilla-syrup"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with plenty of foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk into the tea, spooning the foam on top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "Earl Grey tea with vanilla and frothy milk, soft and grey like its name. The bergamot in the tea smells of orange peel.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "iced-lemon-tea",
+    "name": "Iced Lemon Tea",
+    "group": "tea-and-matcha",
+    "meaning": "Sweet black tea with lemon, over ice",
+    "cup": "tall-glass",
+    "colour": "#c8732a",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "black-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 150,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 3,
+        "optional": false
+      },
+      {
+        "ingredientId": "lemon",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 100,
+        "optional": false,
+        "note": "cold"
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the tea bag in the boiling water for 3 minutes, then lift it out.",
+        "technique": "steep",
+        "ingredientIds": [
+          "black-tea-bag",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar until it dissolves.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Cut two thin slices from the lemon, then squeeze the juice from the rest into the tea.",
+        "ingredientIds": [
+          "lemon"
+        ],
+        "caution": "sharp"
+      },
+      {
+        "text": "Fill a tall glass with the ice and lemon slices, pour in the tea and top up with the cold water.",
+        "ingredientIds": [
+          "ice",
+          "water"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Citrus squeezer",
+        "alternative": "press the lemon with a fork as you squeeze"
+      }
+    ],
+    "about": "Black tea sweetened while hot, sharpened with lemon and poured over ice. Cooling the tea with cold water keeps it from going cloudy.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "rooibos-latte",
+    "name": "Rooibos Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Red herbal tea with steamed milk",
+    "cup": "mug",
+    "colour": "#c07a5e",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "rooibos-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 100,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 150,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the rooibos in the boiling water for 5 minutes, then lift it out.",
+        "technique": "steep",
+        "ingredientIds": [
+          "rooibos-tea-bag",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in over the tea.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
+      }
+    ],
+    "about": "A red herbal tea with steamed milk: naturally sweet, a little nutty, and with no caffeine at all, so it suits any time of day.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  }
+]
