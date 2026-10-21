@@ -113,7 +113,8 @@ as a word for ordering in person; it is not a builder choice.
 
 ### 4.5 Café room
 
-- A greeting in the display font, chosen by the hour.
+- The heading **Café** in the display font, with a small greeting above it chosen by the hour. The
+  heading names the room, so the page title and screen readers say where you are.
 - **Today's cups**: a swipeable shelf, favourites first, then three easy drinks from each group that
   change at local midnight (First Pour's daily shelf). The cups tip with the swipe while the drink stays level.
 - Filter chips **All · Coffee · Tea and matcha · No caffeine**, search, and the menu.
