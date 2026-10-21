@@ -69,7 +69,7 @@ const drinks: Drink[] = [
     ],
     ingredients: [
       { ingredientId: 'kopi-powder', amount: 10, optional: false, role: 'strong' },
-      { ingredientId: 'boiling-water', amount: 100, optional: false },
+      { ingredientId: 'boiling-water', amount: 100, optional: false, note: 'just off the boil' },
       { ingredientId: 'condensed-milk', amount: 2, optional: false, role: 'sweet', when: { milk: ['condensed'] } },
       { ingredientId: 'evaporated-milk', amount: 1, optional: false, when: { milk: ['c'] } },
       { ingredientId: 'sugar', amount: 2, optional: false, role: 'sweet', when: { milk: ['o', 'c'] } },
@@ -128,7 +128,8 @@ const drinks: Drink[] = [
       { ingredientId: 'milo-powder', amount: 3, optional: false, role: 'strong' },
       { ingredientId: 'condensed-milk', amount: 1, optional: false, role: 'sweet', when: { milk: ['milk'] } },
       { ingredientId: 'sugar', amount: 1, optional: false, role: 'sweet', when: { milk: ['o'] } },
-      { ingredientId: 'boiling-water', amount: 150, optional: false, role: 'dilute' },
+      { ingredientId: 'boiling-water', amount: 60, optional: false },
+      { ingredientId: 'water', amount: 120, optional: false, role: 'dilute' },
       { ingredientId: 'ice', amount: 6, optional: false, when: { temp: ['peng'] } },
     ],
     steps: [
@@ -140,7 +141,9 @@ const drinks: Drink[] = [
       },
       { text: 'Stir in the condensed milk.', ingredientIds: ['condensed-milk'] },
       { text: 'Stir in the sugar.', ingredientIds: ['sugar'] },
+      { text: 'Top up with the hot water and stir.', ingredientIds: ['water'], caution: 'hot', when: { temp: ['hot'] } },
       { text: 'Pour it over a glass of ice.', ingredientIds: ['ice'], when: { temp: ['peng'] } },
+      { text: 'Top up with the cold water and stir.', ingredientIds: ['water'], when: { temp: ['peng'] } },
     ],
     tools: [{ name: 'Teaspoon', alternative: 'Any spoon' }],
     about: 'Malted chocolate powder stirred into hot water with milk. The test version of the real thing.',
@@ -198,7 +201,7 @@ const drinks: Drink[] = [
       { ingredientId: 'milk', amount: 120, optional: false },
     ],
     steps: [
-      { text: 'Make a double espresso into the cup.', technique: 'brew', ingredientIds: ['espresso'] },
+      { text: 'Make a double espresso into the cup.', technique: 'brew', ingredientIds: ['espresso'], caution: 'hot' },
       {
         text: 'Steam the milk until hot and silky, then pour it in.',
         technique: 'froth',
@@ -229,7 +232,7 @@ const drinks: Drink[] = [
         caution: 'hot',
       },
     ],
-    tools: [{ name: 'Milk frother', alternative: 'Shake warm milk in a closed jar' }],
+    tools: [{ name: 'Milk frother', alternative: 'Shake cold milk in a closed jar, then warm it uncovered' }],
     about: 'Warm frothed milk in a café cup, with no coffee at all. The test version of the real thing.',
   },
 ]

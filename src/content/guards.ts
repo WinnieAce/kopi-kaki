@@ -32,7 +32,7 @@ export const ALCOHOL_WORDS = [
 ]
 
 const ALCOHOL = new RegExp(`\\b(${ALCOHOL_WORDS.join('|')})\\b`, 'i')
-const HOT = /\b(boil|boils|boiled|boiling|simmer|kettle|steam|steamed|hot water|hot milk)\b/i
+const HOT = /\b(boil|boils|boiled|boiling|just-boiled|simmer|kettle|steam|steamed|hot water|hot milk|espresso|moka)\b/i
 const SHARP = /\b(knife|cut|slice|chop|peel)\b/i
 
 /** Every piece of text in the content, labelled with where it lives. */
@@ -119,4 +119,46 @@ export function combinationProblems(content: Content): string[] {
     }
   }
   return [...problems]
+}
+
+/**
+ * A step the order keeps must not ask for an ingredient the order left out: no "top up with the cold
+ * water" on a Di Lo order, no "stir in the sugar" on a Kosong one. Split such steps instead.
+ */
+export function removedIngredientSteps(content: Content): string[] {
+  const problems = new Set<string>()
+  for (const drink of content.drinks) {
+    for (const combo of allCombinations(drink)) {
+      const order = resolveOrder(drink, combo)
+      const present = new Set(order.lines.map((l) => l.ingredientId))
+      for (const step of order.steps) {
+        const original = drink.steps.find((s) => s.text === step.text)!
+        const missing = original.ingredientIds.filter((id) => !present.has(id))
+        if (missing.length > 0) {
+          problems.add(
+            `drink "${drink.id}" ${JSON.stringify(order.choices)}: step "${step.text}" asks for ${missing.join(', ')}, which this order leaves out`,
+          )
+        }
+      }
+    }
+  }
+  return [...problems]
+}
+
+/**
+ * Shaking something hot in a closed jar builds pressure and can spray it out. A drink with hot steps
+ * must not offer a shaking or closed-jar alternative unless it is about something cold, and a hot step
+ * is never shaken.
+ */
+export function unsafeShakeAdvice(content: Content): string[] {
+  return content.drinks.flatMap((d) => {
+    if (!d.steps.some((s) => s.caution === 'hot')) return []
+    const tools = d.tools
+      .filter((t) => /\b(shake|shaken|jar)\b/i.test(t.alternative) && !/\bcold\b/i.test(t.alternative))
+      .map((t) => `drink "${d.id}" tool "${t.name}" suggests shaking in a jar for a hot drink`)
+    const steps = d.steps
+      .filter((s) => s.technique === 'shake' && s.caution === 'hot')
+      .map((s) => `drink "${d.id}" step "${s.text}" shakes something hot`)
+    return [...tools, ...steps]
+  })
 }

@@ -152,7 +152,7 @@
         ]
       },
       {
-        "text": "Pour the kopi into the cup and stir until the milk and sugar have dissolved.",
+        "text": "Pour the kopi into the cup and stir.",
         "technique": "stir",
         "ingredientIds": [],
         "when": {
@@ -175,7 +175,7 @@
         }
       },
       {
-        "text": "Stir the kopi with the milk and sugar in the jug, then fill a glass with the ice and pour it over.",
+        "text": "Stir the kopi in the jug, then fill a glass with the ice and pour it over.",
         "technique": "stir",
         "ingredientIds": [
           "ice"
@@ -369,7 +369,7 @@
         ]
       },
       {
-        "text": "Pour the yuan yang into the cup and stir until the milk and sugar have dissolved.",
+        "text": "Pour the yuan yang into the cup and stir.",
         "technique": "stir",
         "ingredientIds": [],
         "when": {
@@ -392,7 +392,7 @@
         }
       },
       {
-        "text": "Stir the yuan yang with the milk and sugar in the jug, then fill a glass with the ice and pour it over.",
+        "text": "Stir the yuan yang in the jug, then fill a glass with the ice and pour it over.",
         "technique": "stir",
         "ingredientIds": [
           "ice"
@@ -581,7 +581,7 @@
         ]
       },
       {
-        "text": "Pour the teh into the cup and stir until the milk and sugar have dissolved.",
+        "text": "Pour the teh into the cup and stir.",
         "technique": "stir",
         "ingredientIds": [],
         "when": {
@@ -604,7 +604,7 @@
         }
       },
       {
-        "text": "Stir the teh with the milk and sugar in the jug, then fill a glass with the ice and pour it over.",
+        "text": "Stir the teh in the jug, then fill a glass with the ice and pour it over.",
         "technique": "stir",
         "ingredientIds": [
           "ice"
@@ -933,7 +933,7 @@
         ]
       },
       {
-        "text": "Pour the teh halia into the cup and stir until the milk and sugar have dissolved.",
+        "text": "Pour the teh halia into the cup and stir.",
         "technique": "stir",
         "ingredientIds": [],
         "when": {
@@ -956,7 +956,7 @@
         }
       },
       {
-        "text": "Stir the teh halia with the milk and sugar in the jug, then fill a glass with the ice and pour it over.",
+        "text": "Stir the teh halia in the jug, then fill a glass with the ice and pour it over.",
         "technique": "stir",
         "ingredientIds": [
           "ice"
@@ -1140,9 +1140,20 @@
         }
       },
       {
-        "text": "Fill a glass with the ice, pour in the Milo and top up with the cold water.",
+        "text": "Fill a glass with the ice and pour in the Milo.",
         "ingredientIds": [
-          "ice",
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
           "water"
         ],
         "when": {
@@ -1176,7 +1187,7 @@
         "ingredientId": "milo-powder",
         "amount": 6,
         "optional": false,
-        "note": "4 to stir in, 2 to heap on top"
+        "note": "two-thirds to stir in, the rest to heap on top"
       },
       {
         "ingredientId": "boiling-water",
@@ -1202,7 +1213,7 @@
     ],
     "steps": [
       {
-        "text": "Stir 4 tablespoons of the Milo powder into the boiling water until smooth.",
+        "text": "Stir two-thirds of the Milo powder into the boiling water until smooth.",
         "technique": "stir",
         "ingredientIds": [
           "milo-powder",
@@ -1218,14 +1229,14 @@
         ]
       },
       {
-        "text": "Fill a tall glass with the ice, pour in the Milo and top up with the cold water.",
+        "text": "Fill a glass with the ice, pour in the Milo and top up with the cold water.",
         "ingredientIds": [
           "ice",
           "water"
         ]
       },
       {
-        "text": "Heap the last 2 tablespoons of Milo powder on top and serve with a spoon.",
+        "text": "Heap the rest of the Milo powder on top and serve with a spoon.",
         "ingredientIds": [
           "milo-powder"
         ]
@@ -1387,9 +1398,20 @@
         }
       },
       {
-        "text": "Fill a glass with the ice, pour in the Horlicks and top up with the cold water.",
+        "text": "Fill a glass with the ice and pour in the Horlicks.",
         "ingredientIds": [
-          "ice",
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
+        "technique": "stir",
+        "ingredientIds": [
           "water"
         ],
         "when": {
@@ -1617,14 +1639,14 @@
         "caution": "sharp"
       },
       {
-        "text": "Simmer the chopped water chestnuts in the boiling water for 20 minutes.",
+        "text": "Simmer the chopped water chestnuts in the boiling water for 20 minutes, then strain out the pieces, or keep a few to eat.",
         "ingredientIds": [
           "boiling-water"
         ],
         "caution": "hot"
       },
       {
-        "text": "Stir in the sugar until it dissolves. Strain out the pieces, or keep a few to eat.",
+        "text": "Stir in the sugar until it dissolves.",
         "technique": "stir",
         "ingredientIds": [
           "sugar"
@@ -1880,10 +1902,16 @@
         "ingredientIds": []
       },
       {
-        "text": "Stir in the sugar and the cold water until the sugar dissolves.",
+        "text": "Stir in the sugar until it dissolves.",
         "technique": "stir",
         "ingredientIds": [
-          "sugar",
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the cold water.",
+        "technique": "stir",
+        "ingredientIds": [
           "water"
         ]
       },
@@ -1988,10 +2016,20 @@
         }
       },
       {
-        "text": "Add the ice, then top up with the cold water and stir.",
+        "text": "Add the ice.",
+        "ingredientIds": [
+          "ice"
+        ],
+        "when": {
+          "temp": [
+            "peng"
+          ]
+        }
+      },
+      {
+        "text": "Top up with the cold water and stir.",
         "technique": "stir",
         "ingredientIds": [
-          "ice",
           "water"
         ],
         "when": {
@@ -2110,10 +2148,20 @@
         }
       },
       {
-        "text": "Take out the pandan leaf, then stir in the sugar and the water.",
+        "text": "Take out the pandan leaf, if you used one.",
+        "ingredientIds": []
+      },
+      {
+        "text": "Stir in the sugar.",
         "technique": "stir",
         "ingredientIds": [
-          "sugar",
+          "sugar"
+        ]
+      },
+      {
+        "text": "Stir in the water.",
+        "technique": "stir",
+        "ingredientIds": [
           "water"
         ]
       },
@@ -2170,7 +2218,8 @@
         "technique": "brew",
         "ingredientIds": [
           "espresso"
-        ]
+        ],
+        "caution": "hot"
       }
     ],
     "tools": [
@@ -2210,7 +2259,8 @@
         "technique": "brew",
         "ingredientIds": [
           "espresso"
-        ]
+        ],
+        "caution": "hot"
       },
       {
         "text": "Steam the milk until hot and glossy, with a thin layer of foam.",
@@ -2222,7 +2272,8 @@
       },
       {
         "text": "Pour the milk into the espresso, finishing with a little foam on top.",
-        "ingredientIds": []
+        "ingredientIds": [],
+        "caution": "hot"
       }
     ],
     "tools": [
@@ -2232,7 +2283,7 @@
       },
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Espresso with lots of steamed milk and a thin cap of foam. The milk softens the coffee, so it is the gentlest of the espresso drinks.",
@@ -2266,7 +2317,8 @@
         "technique": "brew",
         "ingredientIds": [
           "espresso"
-        ]
+        ],
+        "caution": "hot"
       },
       {
         "text": "Steam the milk until hot and glossy, letting in plenty of air for a thick foam.",
@@ -2288,7 +2340,7 @@
       },
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Espresso, steamed milk and a deep layer of foam in roughly equal parts. The foam makes it feel light and keeps it warm.",
@@ -2322,7 +2374,8 @@
         "technique": "brew",
         "ingredientIds": [
           "espresso"
-        ]
+        ],
+        "caution": "hot"
       },
       {
         "text": "Steam the milk until hot and glossy, with only a little air, so it stays silky.",
@@ -2344,7 +2397,7 @@
       },
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "A double espresso with a little velvety milk, so the coffee leads. The milk is thin and silky rather than foamy.",
@@ -2388,7 +2441,8 @@
         "technique": "brew",
         "ingredientIds": [
           "espresso"
-        ]
+        ],
+        "caution": "hot"
       },
       {
         "text": "Stir in the cocoa powder and sugar until smooth.",
@@ -2418,7 +2472,7 @@
       },
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "A latte with chocolate stirred through the espresso. The cocoa adds a little more caffeine of its own.",
@@ -2465,7 +2519,8 @@
         "technique": "brew",
         "ingredientIds": [
           "espresso"
-        ]
+        ],
+        "caution": "hot"
       }
     ],
     "tools": [
@@ -2507,7 +2562,7 @@
     "tools": [
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Warm frothed milk in a café cup, with no coffee at all. A treat for children that looks like the grown-ups’ drink.",
@@ -2579,11 +2634,11 @@
     "tools": [
       {
         "name": "Matcha whisk",
-        "alternative": "shake it with the water in a small closed jar"
+        "alternative": "a small whisk or a fork, in a wide cup so nothing splashes"
       },
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Matcha whisked smooth and topped with steamed milk. Water just off the boil keeps it from tasting bitter.",
@@ -2652,7 +2707,7 @@
     "tools": [
       {
         "name": "Matcha whisk",
-        "alternative": "shake it with the water in a small closed jar"
+        "alternative": "shake it with the cold water in a small closed jar"
       }
     ],
     "about": "Bright green matcha floating on cold milk and ice. No hot water needed, so it is quick to make.",
@@ -2723,11 +2778,11 @@
     "tools": [
       {
         "name": "Matcha whisk",
-        "alternative": "shake it with the water in a small closed jar"
+        "alternative": "a small whisk or a fork, in a wide cup so nothing splashes"
       },
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Roasted green tea whisked into warm milk. Toasty and gentle, with far less caffeine than coffee.",
@@ -2804,7 +2859,7 @@
     "tools": [
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Black tea brewed with warm spices, then made creamy with milk. Sweet, fragrant and gently warming.",
@@ -2875,7 +2930,7 @@
     "tools": [
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "Earl Grey tea with vanilla and frothy milk, soft and grey like its name. The bergamot in the tea smells of orange peel.",
@@ -3030,7 +3085,7 @@
     "tools": [
       {
         "name": "Milk frother or steam wand",
-        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+        "alternative": "shake cold milk in a closed jar until foamy, then take the lid off and warm it in the microwave in short bursts"
       }
     ],
     "about": "A red herbal tea with steamed milk: naturally sweet, a little nutty, and with no caffeine at all, so it suits any time of day.",

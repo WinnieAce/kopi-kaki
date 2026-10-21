@@ -82,3 +82,16 @@ it('has no axe violations', async () => {
   await user.click(screen.getByRole('button', { name: 'Start' }))
   await expectAccessible()
 })
+
+it('never suggests shaking anything hot in a closed jar', () => {
+  for (const technique of ['brew', 'steep', 'stir', 'froth', 'whisk', 'pull'] as const) {
+    const tip = TECHNIQUES[technique].noTool
+    if (/jar|shake/i.test(tip)) expect(tip, technique).toMatch(/\bcold\b/i)
+    expect(tip, technique).not.toMatch(/shake (warm|hot)/i)
+  }
+})
+
+it('shows an ingredient’s note, such as how hot the water should be', async () => {
+  await open('/kopitiam/kopi/make')
+  expect(row('Boiling water')).toHaveTextContent('just off the boil')
+})

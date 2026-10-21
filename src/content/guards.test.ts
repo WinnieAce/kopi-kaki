@@ -1,6 +1,14 @@
 import { fixtureContent, fixtureDrink } from '../test/fixtures'
 import drinks from './drinks.json'
-import { allCombinations, alcoholWords, combinationProblems, diLoMismatches, missingCautions } from './guards'
+import {
+  allCombinations,
+  alcoholWords,
+  combinationProblems,
+  diLoMismatches,
+  missingCautions,
+  removedIngredientSteps,
+  unsafeShakeAdvice,
+} from './guards'
 import ingredients from './ingredients.json'
 import type { Content } from './schema'
 import terms from './terms.json'
@@ -17,6 +25,8 @@ it('the fixture and the shipped content are clean', () => {
       ...missingCautions(content),
       ...diLoMismatches(content),
       ...combinationProblems(content),
+      ...removedIngredientSteps(content),
+      ...unsafeShakeAdvice(content),
     ]).toEqual([])
   }
 })
@@ -36,6 +46,10 @@ it.each<[string, (c: Raw) => void, (c: Content) => string[]]>([
     diLoMismatches,
   ],
   ['a line used in no step', (c) => { c.drinks[0].steps[3].ingredientIds = [] }, combinationProblems],
+  ['a step naming an ingredient the order removed', (c) => { c.drinks[0].steps[3].ingredientIds = ['sugar', 'water'] }, removedIngredientSteps],
+  ['an espresso step without its caution', (c) => { delete c.drinks[3].steps[0].caution }, missingCautions],
+  ['shaking warm milk in a closed jar', (c) => { c.drinks[3].tools = [{ name: 'Frother', alternative: 'shake warm milk hard in a closed jar' }] }, unsafeShakeAdvice],
+  ['a hot step that is shaken', (c) => { c.drinks[3].steps[1].technique = 'shake' }, unsafeShakeAdvice],
 ])('catches %s', (_name, mutate, guard) => {
   const content = structuredClone(fixtureContent)
   mutate(content)

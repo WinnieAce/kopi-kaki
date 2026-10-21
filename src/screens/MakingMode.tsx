@@ -36,12 +36,13 @@ export const TECHNIQUES: Record<Technique, { what: string; why: string; noTool: 
   froth: {
     what: 'Heat the milk until hot but not boiling, then froth it until it looks glossy.',
     why: 'Air makes milk feel light and taste sweeter; boiling it makes it taste cooked.',
-    noTool: 'No frother? Shake warm milk hard in a closed jar for 30 seconds.',
+    // Never shake anything hot in a closed jar: it builds pressure and can spray out.
+    noTool: 'No frother? Shake cold milk in a closed jar until foamy, then take the lid off and warm it in short bursts.',
   },
   whisk: {
     what: 'Whisk briskly in a zigzag until there are no lumps and a fine foam forms.',
     why: 'Matcha powder does not dissolve; whisking keeps it evenly spread through the water.',
-    noTool: 'No bamboo whisk? Shake it with the water in a small closed jar.',
+    noTool: 'No bamboo whisk? A small whisk or a fork works; whisk in a wide cup so nothing splashes.',
   },
   pull: {
     what: 'Pour from one mug into another, from a little height, back and forth a few times.',
@@ -187,6 +188,7 @@ export function MakingMode({ room }: { room: Room }) {
                       <span>
                         {ingredient.name}
                         {line.optional && ' (optional)'}
+                        {line.note && <span className="muted small"> · {line.note}</span>}
                       </span>
                     </li>
                   )
