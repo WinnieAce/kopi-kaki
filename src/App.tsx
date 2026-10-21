@@ -4,6 +4,7 @@ import { Layout } from './components/Layout'
 import { RouteChange } from './components/RouteChange'
 import { KopitiamRoom } from './screens/KopitiamRoom'
 import { NotFound } from './screens/NotFound'
+import { OrderPage } from './screens/OrderPage'
 import { Terms } from './screens/Terms'
 import { useUserData } from './storage/UserDataContext'
 import { applyTheme, roomForPath } from './theme/applyTheme'
@@ -28,7 +29,7 @@ export default function App() {
         <Route path="/cafe/:id/make" element={<Placeholder name="Making" />} />
         <Route element={<Layout />}>
           <Route path="/" element={<KopitiamRoom />} />
-          <Route path="/kopitiam/:id" element={<Placeholder name="Order" />} />
+          <Route path="/kopitiam/:id" element={<OrderPage />} />
           <Route path="/words" element={<Placeholder name="Kopitiam words" />} />
           <Route path="/cafe" element={<Placeholder name="Café" />} />
           <Route path="/cafe/:id" element={<Placeholder name="Café drink" />} />

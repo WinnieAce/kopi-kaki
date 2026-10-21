@@ -227,8 +227,11 @@ h1:focus {
   border-radius: 999px;
   color: var(--muted);
   text-decoration: none;
-  font-size: 0.88rem;
+  /* Capped by the screen width, as on iOS tab bars, so four labels always fit even with very large
+     text; the tap area stays 44px. */
+  font-size: min(0.88rem, 4.1vw);
   font-weight: 600;
+  white-space: nowrap;
 }
 .nav a[aria-current='page'] {
   color: var(--on-accent);
@@ -544,6 +547,7 @@ h1:focus {
 }
 .choice-row {
   --label: 4.6em;
+  position: relative;
   margin: 0;
   padding: 0;
   border: 0;
@@ -631,11 +635,17 @@ h1:focus {
   opacity: 0.35;
   cursor: not-allowed;
 }
-/* The reason grows out of the option that was tapped. */
+/* The reason grows out of the option that was tapped. It floats over the row below instead of pushing
+   it down, and lets taps pass straight through, so nothing moves under the finger. */
 .choice-callout {
-  position: relative;
-  clear: both;
-  margin: 0.35rem 0 0.4rem var(--label);
+  position: absolute;
+  z-index: 3;
+  top: calc(100% - 0.2rem);
+  left: var(--label);
+  right: 0;
+  margin: 0;
+  pointer-events: none;
+  box-shadow: 0 0.5rem 1.25rem -0.5rem rgb(0 0 0 / 0.35);
   padding: 0.55rem 0.8rem;
   border-radius: 0.8rem;
   background: var(--warn-bg);
@@ -825,5 +835,189 @@ h1:focus {
   }
   .menu-row:active {
     transform: scale(0.99);
+  }
+}
+
+/* The order page: the cup, the order's name, and the builder right under it. */
+.order-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.15rem;
+}
+.vessel {
+  position: relative;
+  width: 8rem;
+  height: 8rem;
+}
+.vessel-cup {
+  position: absolute;
+  inset: 0;
+}
+.vessel-cup .cup {
+  width: 100%;
+  height: 100%;
+}
+.vessel-cup[data-shown='false'] {
+  opacity: 0;
+  visibility: hidden;
+}
+.vessel-cup[data-shown='true'] .cup {
+  view-transition-name: drink-cup;
+}
+.order-hero h1 {
+  font-size: 1.9rem;
+  min-height: 1.1em;
+}
+.order-zh {
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+.order-meaning {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.choices {
+  padding: 0.5rem 0.75rem 0.6rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+/* Swapping cups: the arriving one settles in from slightly small and soft-focus; the leaving one goes
+   quicker. The blur keeps the eye from seeing two cups at once. */
+@media (prefers-reduced-motion: no-preference) {
+  .vessel-cup {
+    transition:
+      opacity 150ms var(--ease-out),
+      transform 150ms var(--ease-out),
+      filter 150ms var(--ease-out),
+      visibility 0s linear 150ms;
+  }
+  .vessel-cup[data-shown='false'] {
+    transform: scale(0.96);
+    filter: blur(2px);
+  }
+  .vessel-cup[data-shown='true'] {
+    transition:
+      opacity 220ms var(--ease-out),
+      transform 220ms var(--ease-out),
+      filter 220ms var(--ease-out),
+      visibility 0s;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vessel-cup {
+    transition:
+      opacity 150ms ease,
+      visibility 0s linear 150ms;
+  }
+  .vessel-cup[data-shown='true'] {
+    transition: opacity 150ms ease, visibility 0s;
+  }
+}
+::view-transition-group(drink-cup) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+::view-transition-old(drink-cup),
+::view-transition-new(drink-cup) {
+  animation-duration: 260ms;
+  height: 100%;
+}
+
+.caffeine-figure strong {
+  font-size: 1.15rem;
+}
+.caffeine-level {
+  font-weight: 700;
+  color: var(--muted);
+}
+.caffeine-figure.none strong {
+  color: var(--good);
+}
+.caffeine-note {
+  padding: 0.6rem 0.85rem;
+  border-radius: 0.8rem;
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  font-size: 0.9rem;
+}
+
+.order-actions {
+  display: grid;
+  gap: 0.6rem;
+}
+.order-actions > .button {
+  width: 100%;
+}
+.order-actions .row .button {
+  flex: 1 1 auto;
+}
+.button[aria-pressed='true'] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.words-used {
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+.words-used div {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+}
+.words-used dt {
+  font-family: var(--display);
+  font-weight: 700;
+  min-width: 4.5rem;
+}
+.words-used dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.ingredient-rows {
+  display: grid;
+}
+.ingredient-rows li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.ingredient-rows li:last-child {
+  border-bottom: 0;
+}
+.measure {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* With large text or a very narrow screen the options may not fit one line. Then each option becomes
+   its own soft chip and the row wraps; the chosen chip is raised, since a sliding pill cannot follow
+   an option onto a second line. */
+@container (max-width: 18em) {
+  .seg {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 5.5em), 1fr));
+    gap: 0.3rem;
+    padding-top: 0.2rem;
+  }
+  .seg::before,
+  .seg-pill {
+    display: none;
+  }
+  .seg-option span {
+    width: 100%;
+    padding: 0.55rem 0.4rem;
+    background: var(--track, color-mix(in srgb, var(--line) 60%, var(--bg)));
+  }
+  .seg-option:has(input:checked) span {
+    background: var(--pill, var(--surface));
+    box-shadow:
+      0 1px 2px color-mix(in srgb, var(--text) 14%, transparent),
+      0 3px 8px color-mix(in srgb, var(--text) 7%, transparent);
   }
 }

@@ -13,3 +13,10 @@ it('names the page after its screen', async () => {
   await screen.findByRole('heading', { level: 1, name: 'Saved' })
   expect(document.title).toBe('Saved · Kopi Kaki')
 })
+
+it('renames the page when an order is renamed by its choices', async () => {
+  const { user } = renderApp(<App />, { data: defaultUserData(), route: '/kopitiam/kopi' })
+  await screen.findByRole('heading', { level: 1, name: 'Kopi' })
+  await user.click(screen.getByRole('radio', { name: 'Peng' }))
+  expect(document.title).toBe('Kopi Peng · Kopi Kaki')
+})

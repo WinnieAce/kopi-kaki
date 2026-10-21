@@ -8,7 +8,7 @@ import { routeRendered } from '../hooks/viewTransition'
  * the view starts at the top, and focus moves to the heading so screen readers announce it.
  */
 export function RouteChange() {
-  const { pathname } = useLocation()
+  const { pathname, search } = useLocation()
   const navigationType = useNavigationType()
   const firstRender = useRef(true)
   // Read through a ref so that a choice or filter change, which alters the navigation type but not
@@ -18,12 +18,16 @@ export function RouteChange() {
     latestType.current = navigationType
   })
 
+  // The title follows the heading, including an order renamed by its choices (which changes the address
+  // query, not the screen).
+  useLayoutEffect(() => {
+    const name = document.querySelector('h1')?.textContent?.trim()
+    document.title = name && name !== APP_NAME ? `${name} · ${APP_NAME}` : APP_NAME
+  }, [pathname, search])
+
   // Before paint, so a view transition captures the new screen already scrolled and focused.
   useLayoutEffect(() => {
     const heading = document.querySelector('h1')
-    const name = heading?.textContent?.trim()
-    document.title = name && name !== APP_NAME ? `${name} · ${APP_NAME}` : APP_NAME
-
     if (firstRender.current) {
       firstRender.current = false
       return
