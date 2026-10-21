@@ -24,9 +24,9 @@ export const GROUP_CHIPS: Record<DrinkGroup, string> = {
   cooling: 'Cooling',
 }
 
-/** A greeting for the top of the Café room, by the hour on the person's own clock. */
+/** A small greeting above the Café room's heading, by the hour on the person's own clock. */
 export function greeting(hour: number): string {
-  if (hour >= 5 && hour < 12) return 'Good morning.'
-  if (hour >= 12 && hour < 18) return 'Good afternoon.'
-  return 'Good evening.'
+  if (hour >= 5 && hour < 12) return 'Good morning'
+  if (hour >= 12 && hour < 18) return 'Good afternoon'
+  return 'Good evening'
 }

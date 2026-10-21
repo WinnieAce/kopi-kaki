@@ -1,4 +1,4 @@
-import { screen, within } from '@testing-library/react'
+import { screen, waitFor, within } from '@testing-library/react'
 import App from '../App'
 import { defaultUserData, type UserData } from '../storage/userData'
 import { expectAccessible, renderApp } from '../test/render'
@@ -17,11 +17,18 @@ afterEach(() => {
   vi.useRealTimers()
 })
 
-it('greets by the hour', async () => {
+it('is headed Café, with a greeting by the hour just above', async () => {
   vi.useFakeTimers({ toFake: ['Date'] })
   vi.setSystemTime(new Date('2026-10-21T09:00:00'))
   await open()
-  expect(screen.getByRole('heading', { level: 1, name: 'Good morning.' })).toBeInTheDocument()
+  const heading = screen.getByRole('heading', { level: 1, name: 'Café' })
+  const hello = screen.getByText('Good morning')
+  expect(hello.compareDocumentPosition(heading) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+})
+
+it('names the page Café, whatever the hour', async () => {
+  await open()
+  await waitFor(() => expect(document.title).toBe('Café · Kopi Kaki'))
 })
 
 it('Today’s cups puts saved café drinks first', async () => {

@@ -80,9 +80,10 @@ also has an automated accessibility check.
 
 ## Deploy
 
-The app is a folder of static files and can be hosted anywhere. On Cloudflare, connect the repository with build
-command `npm run build` and output directory `dist`. Addresses such as `/kopitiam/kopi?milk=o` must fall back to
-`index.html`.
+The app is a folder of static files and can be hosted anywhere. On Cloudflare Workers, connect the repository with
+build command `npm run build`. `wrangler.json` tells Cloudflare to serve `dist`, to send addresses such as
+`/kopitiam/kopi?milk=o` to `index.html`, and to build a preview of every branch (its `previews` block, which
+`wrangler preview` needs). A push to `main` deploys the live site; a push to any other branch makes a preview.
 
 While the app is shared with friends and family, `public/robots.txt` asks search engines not to index it. To show the
 "Send feedback" link, set `FEEDBACK_URL` in `src/config.ts` to a form that asks for no names or email addresses.

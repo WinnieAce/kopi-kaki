@@ -64,8 +64,11 @@ export function CafeRoom() {
 
   return (
     <div className="stack">
+      {/* The heading names the room, so the page title and screen readers say where you are; the
+          greeting sits above it, like a sign by the door. */}
       <header>
-        <h1 className="hello">{hello}</h1>
+        <p className="hello">{hello}</p>
+        <h1>Café</h1>
       </header>
 
       {shelf.length > 0 && (

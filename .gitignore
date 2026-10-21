@@ -8,3 +8,6 @@ graphify-out/
 !.vscode/extensions.json
 .idea
 .DS_Store
+
+# Wrangler's local state
+.wrangler/
