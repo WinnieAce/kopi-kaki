@@ -13,12 +13,15 @@ export function MenuRow({ drink }: { drink: Drink }) {
   return (
     <CupLink to={`/${drink.room}/${drink.id}`} className="menu-row">
       <Cup cup={order.cup} colour={order.colour} id={`menu:${drink.id}`} />
-      <span className="menu-name">{drink.name}</span>
-      {drink.chinese && (
-        <span className="menu-zh" lang="zh-Hans">
-          {drink.chinese}
-        </span>
-      )}
+      {/* The Chinese name stays whole, dropping below the English one when space is tight. */}
+      <span className="menu-text">
+        <span className="menu-name">{drink.name}</span>
+        {drink.chinese && (
+          <span className="menu-zh" lang="zh-Hans">
+            {drink.chinese}
+          </span>
+        )}
+      </span>
       <span className={caffeine.level === 'none' ? 'menu-level none' : 'menu-level'}>{LEVEL_NAMES[caffeine.level]}</span>
     </CupLink>
   )

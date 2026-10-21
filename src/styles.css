@@ -815,7 +815,15 @@ h1:focus {
 :root[data-room='cafe'] .menu-name {
   font-weight: 400;
 }
+.menu-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.45rem;
+  min-width: 0;
+}
 .menu-zh {
+  white-space: nowrap;
   font-size: 0.95rem;
   color: var(--accent);
 }
