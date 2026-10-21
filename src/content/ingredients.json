@@ -222,13 +222,13 @@
     "id": "espresso",
     "name": "Espresso",
     "category": "coffee",
-    "description": "A small, strong shot of coffee pressed through finely ground beans.",
+    "description": "A small, strong shot of coffee pressed through finely ground beans, with a golden crema on top.",
     "unit": "ml",
     "caffeineMg": 2,
     "allergens": [],
     "substitutes": [],
-    "colour": "#808080",
-    "caffeineSource": "Draft value, replaced in Task 21"
+    "colour": "#3b2416",
+    "caffeineSource": "USDA FoodData Central lists brewed espresso at 212 mg of caffeine per 100 g, about 2 mg per millilitre."
   },
   {
     "id": "milk",
@@ -241,6 +241,110 @@
       "dairy"
     ],
     "substitutes": [],
-    "colour": "#808080"
+    "colour": "#fbf6ee"
+  },
+  {
+    "id": "cocoa-powder",
+    "name": "Cocoa powder",
+    "category": "malt-and-chocolate",
+    "description": "Unsweetened cocoa: bitter on its own, rich once sugar and milk join it.",
+    "unit": "tsp",
+    "caffeineMg": 6,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#5a3423",
+    "caffeineSource": "USDA FoodData Central lists unsweetened cocoa powder at 230 mg of caffeine per 100 g; a level teaspoon is about 2.5 g."
+  },
+  {
+    "id": "matcha",
+    "name": "Matcha",
+    "category": "tea",
+    "description": "Green tea leaves ground to a fine, bright green powder. Grassy, a little sweet and a little bitter.",
+    "unit": "g",
+    "caffeineMg": 32,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#7f9a3e",
+    "caffeineSource": "Matcha powders measured 19–44 mg of caffeine per gram (Koláčková et al., Foods, 2020); 32 mg is a middle figure."
+  },
+  {
+    "id": "hojicha",
+    "name": "Hojicha powder",
+    "category": "tea",
+    "description": "Japanese green tea roasted until brown, then ground. Toasty and nutty, with much less caffeine than matcha.",
+    "unit": "g",
+    "caffeineMg": 10,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#8a5434",
+    "caffeineSource": "Roasting drives off much of the caffeine: hojicha infusions measure about 20 mg per 100 ml (Standard Tables of Food Composition in Japan), roughly a third of matcha. About 10 mg per gram of powder is an estimate."
+  },
+  {
+    "id": "black-tea-bag",
+    "name": "Black tea bag",
+    "category": "tea",
+    "description": "A bag of black tea such as breakfast tea or Ceylon.",
+    "unit": "piece",
+    "caffeineMg": 45,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#6a3418",
+    "caffeineSource": "USDA FoodData Central lists brewed black tea at 20 mg of caffeine per 100 ml; one bag makes about 240 ml, roughly 45 mg."
+  },
+  {
+    "id": "earl-grey-tea-bag",
+    "name": "Earl Grey tea bag",
+    "category": "tea",
+    "description": "Black tea scented with bergamot, a citrus fruit, so it smells of orange peel and flowers.",
+    "unit": "piece",
+    "caffeineMg": 40,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#6e4a2a",
+    "caffeineSource": "Earl Grey is black tea, about 20 mg of caffeine per 100 ml brewed (USDA FoodData Central); one bag, about 40 mg."
+  },
+  {
+    "id": "rooibos-tea-bag",
+    "name": "Rooibos tea bag",
+    "category": "tea",
+    "description": "A red herbal tea from South Africa, naturally sweet and with no caffeine.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#a8452c"
+  },
+  {
+    "id": "chai-spice",
+    "name": "Chai spice",
+    "category": "flavour",
+    "description": "A ground mix of cinnamon, ginger, cardamom, clove and black pepper.",
+    "unit": "tsp",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#9b5a2a"
+  },
+  {
+    "id": "vanilla-syrup",
+    "name": "Vanilla syrup",
+    "category": "sweetener",
+    "description": "A sweet syrup flavoured with vanilla. Check that the label lists only sugar, water and flavouring.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#f0dcae"
+  },
+  {
+    "id": "lemon",
+    "name": "Lemon",
+    "category": "fresh",
+    "description": "A fresh lemon, for slices and a squeeze of juice.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#f2df5a"
   }
 ]

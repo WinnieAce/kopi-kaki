@@ -2138,16 +2138,116 @@
     "about": "Smooth soy milk, lightly sweetened and scented with pandan, the way the soya bean stall serves it. It contains soy, and no dairy."
   },
   {
-    "id": "flat-white",
-    "name": "Flat White",
-    "room": "cafe",
+    "id": "long-black",
+    "name": "Long Black",
     "group": "coffee",
-    "meaning": "Espresso with velvety milk",
+    "meaning": "Espresso over hot water",
     "cup": "cafe-cup",
-    "colour": "#b98a5c",
-    "difficulty": "medium",
+    "colour": "#3b2416",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "boiling-water",
+        "amount": 100,
+        "optional": false
+      },
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Pour the hot water into the cup.",
+        "ingredientIds": [
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Make a double espresso straight on top, so the crema stays.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      }
+    ],
+    "about": "A double espresso poured over hot water. Putting the water in first keeps the crema, the golden foam, on top, so it tastes rounder than coffee topped up the other way.",
+    "room": "cafe",
     "choices": {},
-    "blocked": [],
+    "blocked": []
+  },
+  {
+    "id": "latte",
+    "name": "Latte",
+    "group": "coffee",
+    "meaning": "Espresso with plenty of steamed milk",
+    "cup": "cafe-cup",
+    "colour": "#c8a07a",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 200,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into the cup.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a thin layer of foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk into the espresso, finishing with a little foam on top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "Espresso with lots of steamed milk and a thin cap of foam. The milk softens the coffee, so it is the gentlest of the espresso drinks.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "cappuccino",
+    "name": "Cappuccino",
+    "group": "coffee",
+    "meaning": "Espresso with milk and thick foam",
+    "cup": "cafe-cup",
+    "colour": "#c4986e",
+    "difficulty": "medium",
     "ingredients": [
       {
         "ingredientId": "espresso",
@@ -2169,33 +2269,224 @@
         ]
       },
       {
-        "text": "Steam the milk until hot and silky, then pour it in.",
+        "text": "Steam the milk until hot and glossy, letting in plenty of air for a thick foam.",
         "technique": "froth",
         "ingredientIds": [
           "milk"
         ],
         "caution": "hot"
+      },
+      {
+        "text": "Pour in the milk, then spoon the foam on top.",
+        "ingredientIds": []
       }
     ],
     "tools": [
       {
         "name": "Espresso machine",
-        "alternative": "A moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
       }
     ],
-    "about": "A double espresso with a small amount of steamed milk, so the coffee leads. The milk is thin and velvety rather than foamy."
+    "about": "Espresso, steamed milk and a deep layer of foam in roughly equal parts. The foam makes it feel light and keeps it warm.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "flat-white",
+    "name": "Flat White",
+    "group": "coffee",
+    "meaning": "Espresso with velvety milk",
+    "cup": "cafe-cup",
+    "colour": "#b98a5c",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 120,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into the cup.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with only a little air, so it stays silky.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in steadily, finishing with a heart if you can.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "A double espresso with a little velvety milk, so the coffee leads. The milk is thin and silky rather than foamy.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "mocha",
+    "name": "Mocha",
+    "group": "coffee",
+    "meaning": "Chocolate espresso with steamed milk",
+    "cup": "mug",
+    "colour": "#6e4430",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      },
+      {
+        "ingredientId": "cocoa-powder",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 180,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Make a double espresso into a mug.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ]
+      },
+      {
+        "text": "Stir in the cocoa powder and sugar until smooth.",
+        "technique": "stir",
+        "ingredientIds": [
+          "cocoa-powder",
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in and stir once.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "A latte with chocolate stirred through the espresso. The cocoa adds a little more caffeine of its own.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "iced-latte",
+    "name": "Iced Latte",
+    "group": "coffee",
+    "meaning": "Espresso over cold milk and ice",
+    "cup": "tall-glass",
+    "colour": "#b88a62",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 180,
+        "optional": false,
+        "note": "cold"
+      },
+      {
+        "ingredientId": "espresso",
+        "amount": 60,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Fill a tall glass with the ice and pour in the cold milk.",
+        "ingredientIds": [
+          "ice",
+          "milk"
+        ]
+      },
+      {
+        "text": "Make a double espresso and pour it slowly over the milk, so it settles in layers.",
+        "technique": "brew",
+        "ingredientIds": [
+          "espresso"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Espresso machine",
+        "alternative": "a moka pot, or 2 tsp strong instant coffee in 60 ml just-boiled water"
+      }
+    ],
+    "about": "Espresso poured over cold milk and ice, so it drifts down in layers. Stir before drinking, or enjoy watching it mix.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
   },
   {
     "id": "babyccino",
     "name": "Babyccino",
-    "room": "cafe",
     "group": "coffee",
     "meaning": "Frothed milk",
     "cup": "cafe-cup",
     "colour": "#f3e6d4",
     "difficulty": "easy",
-    "choices": {},
-    "blocked": [],
     "ingredients": [
       {
         "ingredientId": "milk",
@@ -2205,7 +2496,7 @@
     ],
     "steps": [
       {
-        "text": "Froth the milk until warm, then pour it into the cup.",
+        "text": "Froth the milk until warm, not hot, then pour it into the cup with the foam on top.",
         "technique": "froth",
         "ingredientIds": [
           "milk"
@@ -2215,10 +2506,536 @@
     ],
     "tools": [
       {
-        "name": "Milk frother",
-        "alternative": "Shake warm milk in a closed jar"
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
       }
     ],
-    "about": "Warm frothed milk in a café cup, with no coffee at all. A treat for children that looks like the grown-ups’ drink."
+    "about": "Warm frothed milk in a café cup, with no coffee at all. A treat for children that looks like the grown-ups’ drink.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "matcha-latte",
+    "name": "Matcha Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Whisked green tea with steamed milk",
+    "cup": "mug",
+    "colour": "#9db06a",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "matcha",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 30,
+        "optional": false,
+        "note": "left to cool for a minute"
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 200,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Sift the matcha into a bowl and add the hot water, left to cool for a minute after boiling.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "matcha",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Whisk briskly until smooth and frothy, then stir in the sugar.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk into a mug and pour the matcha in on top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Matcha whisk",
+        "alternative": "shake it with the water in a small closed jar"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "Matcha whisked smooth and topped with steamed milk. Water just off the boil keeps it from tasting bitter.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "iced-matcha-latte",
+    "name": "Iced Matcha Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Whisked green tea over cold milk",
+    "cup": "tall-glass",
+    "colour": "#a9bd7a",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "matcha",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 40,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 180,
+        "optional": false,
+        "note": "cold"
+      }
+    ],
+    "steps": [
+      {
+        "text": "Whisk the matcha and sugar with the water until smooth, with no lumps.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "matcha",
+          "water",
+          "sugar"
+        ]
+      },
+      {
+        "text": "Fill a tall glass with the ice and pour in the cold milk.",
+        "ingredientIds": [
+          "ice",
+          "milk"
+        ]
+      },
+      {
+        "text": "Pour the matcha over the top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Matcha whisk",
+        "alternative": "shake it with the water in a small closed jar"
+      }
+    ],
+    "about": "Bright green matcha floating on cold milk and ice. No hot water needed, so it is quick to make.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "hojicha-latte",
+    "name": "Hojicha Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Roasted green tea with steamed milk",
+    "cup": "mug",
+    "colour": "#b07a52",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "hojicha",
+        "amount": 2.5,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 30,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 200,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Whisk the hojicha powder with the boiling water until smooth.",
+        "technique": "whisk",
+        "ingredientIds": [
+          "hojicha",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in over the tea.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Matcha whisk",
+        "alternative": "shake it with the water in a small closed jar"
+      },
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "Roasted green tea whisked into warm milk. Toasty and gentle, with far less caffeine than coffee.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "chai-latte",
+    "name": "Chai Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Spiced tea with steamed milk",
+    "cup": "mug",
+    "colour": "#c08a5a",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "black-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "chai-spice",
+        "amount": 0.5,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 100,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 2,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 150,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the tea bag and chai spice in the boiling water for 4 minutes.",
+        "technique": "steep",
+        "ingredientIds": [
+          "black-tea-bag",
+          "chai-spice",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Lift out the tea bag and stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in over the spiced tea.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "Black tea brewed with warm spices, then made creamy with milk. Sweet, fragrant and gently warming.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "london-fog",
+    "name": "London Fog",
+    "group": "tea-and-matcha",
+    "meaning": "Earl Grey with vanilla and steamed milk",
+    "cup": "mug",
+    "colour": "#b7a089",
+    "difficulty": "medium",
+    "ingredients": [
+      {
+        "ingredientId": "earl-grey-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 120,
+        "optional": false
+      },
+      {
+        "ingredientId": "vanilla-syrup",
+        "amount": 10,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 120,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the Earl Grey in the boiling water for 4 minutes, then lift it out.",
+        "technique": "steep",
+        "ingredientIds": [
+          "earl-grey-tea-bag",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the vanilla syrup.",
+        "technique": "stir",
+        "ingredientIds": [
+          "vanilla-syrup"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with plenty of foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk into the tea, spooning the foam on top.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "Earl Grey tea with vanilla and frothy milk, soft and grey like its name. The bergamot in the tea smells of orange peel.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "iced-lemon-tea",
+    "name": "Iced Lemon Tea",
+    "group": "tea-and-matcha",
+    "meaning": "Sweet black tea with lemon, over ice",
+    "cup": "tall-glass",
+    "colour": "#c8732a",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "black-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 150,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 3,
+        "optional": false
+      },
+      {
+        "ingredientId": "lemon",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "ice",
+        "amount": 8,
+        "optional": false
+      },
+      {
+        "ingredientId": "water",
+        "amount": 100,
+        "optional": false,
+        "note": "cold"
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the tea bag in the boiling water for 3 minutes, then lift it out.",
+        "technique": "steep",
+        "ingredientIds": [
+          "black-tea-bag",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar until it dissolves.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Cut two thin slices from the lemon, then squeeze the juice from the rest into the tea.",
+        "ingredientIds": [
+          "lemon"
+        ],
+        "caution": "sharp"
+      },
+      {
+        "text": "Fill a tall glass with the ice and lemon slices, pour in the tea and top up with the cold water.",
+        "ingredientIds": [
+          "ice",
+          "water"
+        ]
+      }
+    ],
+    "tools": [
+      {
+        "name": "Citrus squeezer",
+        "alternative": "press the lemon with a fork as you squeeze"
+      }
+    ],
+    "about": "Black tea sweetened while hot, sharpened with lemon and poured over ice. Cooling the tea with cold water keeps it from going cloudy.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
+  },
+  {
+    "id": "rooibos-latte",
+    "name": "Rooibos Latte",
+    "group": "tea-and-matcha",
+    "meaning": "Red herbal tea with steamed milk",
+    "cup": "mug",
+    "colour": "#c07a5e",
+    "difficulty": "easy",
+    "ingredients": [
+      {
+        "ingredientId": "rooibos-tea-bag",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "boiling-water",
+        "amount": 100,
+        "optional": false
+      },
+      {
+        "ingredientId": "sugar",
+        "amount": 1,
+        "optional": false
+      },
+      {
+        "ingredientId": "milk",
+        "amount": 150,
+        "optional": false
+      }
+    ],
+    "steps": [
+      {
+        "text": "Steep the rooibos in the boiling water for 5 minutes, then lift it out.",
+        "technique": "steep",
+        "ingredientIds": [
+          "rooibos-tea-bag",
+          "boiling-water"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Stir in the sugar.",
+        "technique": "stir",
+        "ingredientIds": [
+          "sugar"
+        ]
+      },
+      {
+        "text": "Steam the milk until hot and glossy, with a little foam.",
+        "technique": "froth",
+        "ingredientIds": [
+          "milk"
+        ],
+        "caution": "hot"
+      },
+      {
+        "text": "Pour the milk in over the tea.",
+        "ingredientIds": []
+      }
+    ],
+    "tools": [
+      {
+        "name": "Milk frother or steam wand",
+        "alternative": "shake warm milk hard in a closed jar for 30 seconds"
+      }
+    ],
+    "about": "A red herbal tea with steamed milk: naturally sweet, a little nutty, and with no caffeine at all, so it suits any time of day.",
+    "room": "cafe",
+    "choices": {},
+    "blocked": []
   }
 ]
