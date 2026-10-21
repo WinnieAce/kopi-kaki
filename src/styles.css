@@ -1021,3 +1021,16 @@ h1:focus {
       0 3px 8px color-mix(in srgb, var(--text) 7%, transparent);
   }
 }
+
+/* Kopitiam words: one entry per word, separated by space and a faint line, not boxes. */
+.words {
+  display: grid;
+}
+.word {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 1rem;
+}
+.word:last-child {
+  border-bottom: 0;
+}

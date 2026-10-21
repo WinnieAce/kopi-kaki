@@ -6,6 +6,7 @@ import { KopitiamRoom } from './screens/KopitiamRoom'
 import { NotFound } from './screens/NotFound'
 import { OrderPage } from './screens/OrderPage'
 import { Terms } from './screens/Terms'
+import { Words } from './screens/Words'
 import { useUserData } from './storage/UserDataContext'
 import { applyTheme, roomForPath } from './theme/applyTheme'
 
@@ -30,7 +31,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<KopitiamRoom />} />
           <Route path="/kopitiam/:id" element={<OrderPage />} />
-          <Route path="/words" element={<Placeholder name="Kopitiam words" />} />
+          <Route path="/words" element={<Words />} />
           <Route path="/cafe" element={<Placeholder name="Café" />} />
           <Route path="/cafe/:id" element={<Placeholder name="Café drink" />} />
           <Route path="/saved" element={<Placeholder name="Saved" />} />
