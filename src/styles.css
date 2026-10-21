@@ -472,3 +472,64 @@ h1:focus {
     }
   }
 }
+
+/* Cups. Porcelain keeps a dark ink outline in every mode so the white cup holds its shape. */
+.cup {
+  --cup-line: currentColor;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  overflow: visible;
+  color: var(--text);
+}
+:root[data-theme='dark'] .cup {
+  --cup-line: #2b1d14;
+}
+
+/* A drink that is alive: steam drifts off a hot one and ice bobs in a cold one. Each loop plays for a
+   few seconds and then rests (see hooks/loopRest.ts); cups scrolled out of view are asleep. */
+@media (prefers-reduced-motion: no-preference) {
+  .cup .steam {
+    animation: drift 2.6s ease-out infinite;
+  }
+  .cup .steam + .steam {
+    animation-delay: 1.1s;
+  }
+  .cup .ice {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: bob 2.4s ease-in-out infinite alternate;
+  }
+  .cup .ice + .ice {
+    animation-duration: 3.1s;
+    animation-direction: alternate-reverse;
+  }
+  .cup .drink {
+    transition: fill 200ms ease;
+  }
+  .asleep .cup *,
+  .resting .cup * {
+    animation-play-state: paused;
+  }
+}
+@keyframes bob {
+  from {
+    transform: translate(-0.6px, 0.5px) rotate(-10deg);
+  }
+  to {
+    transform: translate(0.8px, -0.8px) rotate(12deg);
+  }
+}
+@keyframes drift {
+  from {
+    transform: none;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
