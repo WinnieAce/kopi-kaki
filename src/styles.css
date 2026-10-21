@@ -1,3 +1,474 @@
+/* The Kopi café colours, shown until the saved theme has loaded. Every palette, in light and dark,
+   lives in src/theme/palettes.ts and is applied on top of these by room (data-room on <html>). */
+:root {
+  color-scheme: light dark;
+  --bg: #f5f1ea;
+  --surface: #fbf9f6;
+  --text: #4a342a;
+  --muted: #644737;
+  --line: #d7c9b8;
+  --control-line: #99877a; /* 3:1 or better against the page and surfaces, for field and button edges */
+  --accent: #7d5a44;
+  --on-accent: #ffffff;
+  --good: #2b6655;
+  --warn-bg: #f6ecd8;
+  --warn-text: #5a3d12;
+  --glow: #d7c9b8;
+  --space: 1rem;
+  --gutter: 1rem;
+  --radius: 1.25rem;
+  --tap: 2.75rem; /* 44px minimum tap target */
+  --nav-height: 3.5rem;
+  --body: 'Figtree Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --display-cafe: 'Young Serif', 'Iowan Old Style', Georgia, serif;
+  --display-kopitiam: 'Noto Serif', Georgia, 'Times New Roman', serif;
+  --zh: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --display: var(--display-cafe);
+  /* Strong curves for interface feedback (Emil Kowalski's): ease-out for anything answering a touch. */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --press: 100ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1410;
+    --surface: #31221c;
+    --text: #f5f1ea;
+    --muted: #d7c9b8;
+    --line: #413832;
+    --control-line: #786d63;
+    --accent: #d7c9b8;
+    --on-accent: #1c1410;
+    --good: #79b9a3;
+    --warn-bg: #3d2c12;
+    --warn-text: #f3d9a6;
+    --glow: #3e2d22;
+  }
+}
+
+/* The Kopitiam room sets its signboard serif for display type. */
+:root[data-room='kopitiam'] {
+  --display: var(--display-kopitiam);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  background: var(--bg);
+  /* The parts of the page the browser draws, themed from the palette. */
+  accent-color: var(--accent);
+  caret-color: var(--accent);
+  scrollbar-color: var(--control-line) transparent;
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   margin: 0;
+  min-height: 100dvh;
+  /* A wash of colour behind the top of the page, in place of boxes and borders. */
+  background:
+    radial-gradient(120% 26rem at 85% -6rem, color-mix(in srgb, var(--glow) 55%, transparent), transparent 70%) no-repeat,
+    var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 2.3rem;
+  letter-spacing: -0.012em; /* large type reads better slightly tightened */
+}
+:root[data-room='kopitiam'] h1 {
+  font-weight: 700;
+}
+h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.45rem;
+  letter-spacing: -0.01em;
+}
+:root[data-room='kopitiam'] h2 {
+  font-weight: 700;
+}
+h3 {
+  font-size: 1.05rem;
+}
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+/* Chinese is always set in a real Chinese typeface. */
+:lang(zh-Hans) {
+  font-family: var(--zh);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 32%, transparent);
+  color: var(--text);
+}
+
+/* Drawn icons sit on the text baseline at the size of the words beside them. */
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+h1:focus {
+  outline: none; /* focused by script on navigation, for screen readers; not an interactive control */
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Layout */
+
+.app {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter) calc(var(--nav-height) + env(safe-area-inset-bottom) + 2.5rem);
+}
+
+.header {
+  padding: 0.5rem 0 0;
+  display: flex;
+  align-items: center;
+}
+
+.back {
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0 0.5rem 0 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.main {
+  padding: 0.75rem 0 var(--space);
+}
+
+/* Content scrolls softly under the floating tab bar: a fade where the two meet, not a hard line. */
+.app::after {
+  content: '';
+  position: fixed;
+  inset: auto 0 0;
+  height: calc(var(--nav-height) + env(safe-area-inset-bottom) + 2.25rem);
+  background: linear-gradient(to top, var(--bg) 35%, color-mix(in srgb, var(--bg) 0%, transparent));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* A translucent floating pill in place of a bar across the bottom. */
+.nav {
+  position: fixed;
+  left: 50%;
+  bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 2;
+  width: min(calc(100% - 1.5rem), 26rem);
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent),
+    0 0.5rem 1.5rem -0.75rem rgb(0 0 0 / 0.45);
+}
+.nav a {
+  position: relative;
+  flex: 1 1 0;
+  min-height: var(--tap);
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.nav a[aria-current='page'] {
+  color: var(--on-accent);
+}
+.nav-pill {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.nav-label {
+  position: relative; /* above the sliding highlight */
+}
+
+/* Building blocks */
+
+.stack {
+  display: grid;
+  gap: 1.25rem;
+}
+.stack-sm {
+  display: grid;
+  gap: 0.6rem;
+}
+.stack > *,
+.stack-sm > * {
+  min-width: 0;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 0.9rem;
+}
+.prose p {
+  max-width: 65ch;
+}
+.plain-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* A small heading in capitals that names a part of the screen. */
+.label {
+  font-family: var(--body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.notice {
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  padding: 0.75rem 1.1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.button {
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--control-line);
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.field {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.field input,
+.field select {
+  min-height: 3rem;
+  width: 100%;
+  padding: 0.5rem 1.1rem;
+  font: inherit;
+  font-weight: 400;
+  color: var(--text);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  border: 1px solid var(--control-line);
+  border-radius: 999px;
+}
+
+/* Quick filters: one row to thumb through, fading out at the edge of the screen. */
+.chips {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 calc(var(--gutter) * -1);
+  padding: 0.25rem var(--gutter);
+  overflow-x: auto;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, transparent, #000 var(--gutter), #000 calc(100% - 2.5rem), transparent);
+}
+.chips::-webkit-scrollbar {
+  display: none;
+}
+.chip {
+  flex: none;
+  min-height: var(--tap);
+  padding: 0 1.1rem;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--control-line);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Someone who has asked for less transparency, or more contrast, gets a solid bar and firmer edges. */
+@media (prefers-reduced-transparency: reduce) {
+  .nav {
+    background: var(--surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+@media (prefers-contrast: more) {
+  .nav {
+    background: var(--surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border: 1px solid var(--control-line);
+  }
+}
+
+/* Moving between screens. The nav has its own name, so it stays put instead of fading. */
+.nav {
+  view-transition-name: nav;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+  animation-timing-function: var(--ease-out);
+}
+/* Switching rooms: the new room drifts in a little from the side of the tab that was tapped. */
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-nav-direction='right']::view-transition-old(root) {
+    animation-name: fade-out, drift-out-left;
+  }
+  :root[data-nav-direction='right']::view-transition-new(root) {
+    animation-name: fade-in, drift-in-right;
+  }
+  :root[data-nav-direction='left']::view-transition-old(root) {
+    animation-name: fade-out, drift-out-right;
+  }
+  :root[data-nav-direction='left']::view-transition-new(root) {
+    animation-name: fade-in, drift-in-left;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes drift-out-left {
+  to {
+    transform: translateX(-8px);
+  }
+}
+@keyframes drift-out-right {
+  to {
+    transform: translateX(8px);
+  }
+}
+@keyframes drift-in-right {
+  from {
+    transform: translateX(8px);
+  }
+}
+@keyframes drift-in-left {
+  from {
+    transform: translateX(-8px);
+  }
+}
+
+/* Everything you can press gives a little under your finger, the moment it is pressed. */
+@media (prefers-reduced-motion: no-preference) {
+  .button,
+  .chip,
+  .nav a,
+  .back {
+    transition:
+      background-color 200ms ease,
+      color 200ms ease,
+      border-color 200ms ease,
+      transform var(--press) var(--ease-out);
+  }
+  .button:active,
+  .chip:active,
+  .nav a:active,
+  .back:active {
+    transform: scale(0.97);
+  }
+  /* Hover effects only for a real pointer: on a phone they would stick after a tap. */
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover {
+      border-color: var(--accent);
+    }
+  }
 }
