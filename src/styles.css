@@ -533,3 +533,149 @@ h1:focus {
     opacity: 0;
   }
 }
+
+/* The order builder's choice rows: labels in their own column, each row a soft sand track with a
+   raised pill on the chosen option. The drawn track is slim (34px) but every option keeps a 44px
+   tap area. When the builder is narrow, or text is enlarged, each label moves above its row. */
+.choices {
+  container-type: inline-size;
+  display: grid;
+  gap: 0.1rem;
+}
+.choice-row {
+  --label: 4.6em;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.choice-row legend {
+  float: left; /* a floated legend sits in the row beside its options */
+  width: var(--label);
+  padding: 0;
+  line-height: var(--tap);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+@container (max-width: 18em) {
+  .choice-row {
+    --label: 0em;
+  }
+  .choice-row legend {
+    float: none;
+    width: auto;
+    line-height: 1.4;
+    padding-top: 0.35rem;
+  }
+}
+.seg {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--n), 1fr);
+}
+.seg::before {
+  content: '';
+  position: absolute;
+  inset: 5px 0;
+  border-radius: 999px;
+  background: var(--track, color-mix(in srgb, var(--line) 60%, var(--bg)));
+}
+.seg-pill {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 3px;
+  width: calc((100% - 6px) / var(--n));
+  transform: translateX(calc(var(--i) * 100%));
+  border-radius: 999px;
+  background: var(--pill, var(--surface));
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--text) 14%, transparent),
+    0 3px 8px color-mix(in srgb, var(--text) 7%, transparent);
+}
+.seg-option {
+  position: relative;
+  min-height: var(--tap);
+  display: grid;
+  place-items: center;
+  padding: 0 2px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--muted);
+  cursor: pointer;
+}
+.seg-option input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+.seg-option span {
+  position: relative; /* above the pill */
+  border-radius: 999px;
+  padding: 0.15rem 0.2rem;
+}
+.seg-option:has(input:focus-visible) span {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.seg-option:has(input:checked) {
+  color: var(--on-pill, var(--text));
+  font-weight: 700;
+}
+.seg-option:has(input[aria-disabled='true']) {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+/* The reason grows out of the option that was tapped. */
+.choice-callout {
+  position: relative;
+  clear: both;
+  margin: 0.35rem 0 0.4rem var(--label);
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.8rem;
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  transform-origin: calc(100% * (var(--at) + 0.5) / var(--n)) top;
+}
+.choice-callout::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: calc(100% * (var(--at) + 0.5) / var(--n) - 5px);
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .seg-pill {
+    transition: transform 200ms var(--ease-out);
+  }
+  .seg-option span {
+    transition: transform var(--press) var(--ease-out);
+  }
+  .seg-option:active span {
+    transform: scale(0.97);
+  }
+  .choice-callout {
+    animation: callout-in 150ms var(--ease-out);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .choice-callout {
+    animation: fade-in 150ms ease;
+  }
+}
+@keyframes callout-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
