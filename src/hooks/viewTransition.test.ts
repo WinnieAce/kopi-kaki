@@ -1,4 +1,4 @@
-import { rememberCup, routeRendered, withViewTransition } from './viewTransition'
+import { crossFade, rememberCup, routeRendered, withViewTransition } from './viewTransition'
 
 afterEach(() => {
   vi.unstubAllGlobals()
@@ -68,4 +68,25 @@ it('names the same cup again on the way back, so the drink glides home to where 
   const [menuCup, shelfCup] = document.querySelectorAll<SVGElement>('.cup')
   expect(shelfCup.style.viewTransitionName).toBe('drink-cup')
   expect(menuCup.style.viewTransitionName).toBe('')
+})
+
+it('cross-fades a change made outside navigation, such as the theme', () => {
+  const update = vi.fn()
+  let inside = false
+  document.startViewTransition = ((callback: () => void) => {
+    inside = true
+    callback()
+    inside = false
+    return {}
+  }) as unknown as typeof document.startViewTransition
+  crossFade(() => {
+    update(inside)
+  })
+  expect(update).toHaveBeenCalledWith(true)
+})
+
+it('just makes the change where there are no view transitions', () => {
+  const update = vi.fn()
+  crossFade(update)
+  expect(update).toHaveBeenCalledOnce()
 })

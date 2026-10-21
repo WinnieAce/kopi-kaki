@@ -7,14 +7,13 @@ import { CafeRoom } from './screens/CafeRoom'
 import { KopitiamRoom } from './screens/KopitiamRoom'
 import { MakingMode } from './screens/MakingMode'
 import { NotFound } from './screens/NotFound'
+import { Saved } from './screens/Saved'
+import { Settings } from './screens/Settings'
 import { OrderPage } from './screens/OrderPage'
 import { Terms } from './screens/Terms'
 import { Words } from './screens/Words'
 import { useUserData } from './storage/UserDataContext'
 import { applyTheme, roomForPath } from './theme/applyTheme'
-
-// Screens still to be built show their name, so routing can be tested now.
-const Placeholder = ({ name }: { name: string }) => <h1>{name}</h1>
 
 export default function App() {
   const { data } = useUserData()
@@ -37,8 +36,8 @@ export default function App() {
           <Route path="/words" element={<Words />} />
           <Route path="/cafe" element={<CafeRoom />} />
           <Route path="/cafe/:id" element={<CafeDrinkPage />} />
-          <Route path="/saved" element={<Placeholder name="Saved" />} />
-          <Route path="/settings" element={<Placeholder name="Settings" />} />
+          <Route path="/saved" element={<Saved />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Route>

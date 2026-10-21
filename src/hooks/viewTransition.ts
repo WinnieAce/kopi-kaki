@@ -1,3 +1,5 @@
+import { flushSync } from 'react-dom'
+
 // Moving between a list and a drink page with the browser's View Transitions: the tapped cup glides
 // and grows into the big cup on the drink page, and glides back to the same spot on the way out. The
 // big cup is always named `drink-cup` in the stylesheet; the matching small cup is named here, one
@@ -58,4 +60,17 @@ export function withViewTransition(go: () => void, { fadeWhenReduced = false } =
         }, 600)
       }),
   )
+}
+
+/**
+ * Cross-fades a change that is not a navigation, such as switching between light and dark, so the
+ * page's brightness eases over instead of jumping. The update runs synchronously inside the
+ * transition, so the new look is captured at once.
+ */
+export function crossFade(update: () => void) {
+  if (!document.startViewTransition) {
+    update()
+    return
+  }
+  document.startViewTransition(() => flushSync(update))
 }
