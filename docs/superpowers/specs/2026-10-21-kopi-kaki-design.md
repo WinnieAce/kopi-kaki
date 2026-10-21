@@ -106,7 +106,7 @@ order, tools with alternatives, allergens, and the "about" text.
 
 One page listing every ordering term (O, C, Kosong, Siew Dai, Ga Dai, Gau, Po, Di Lo, Peng, Dabao / Ta
 Pau, Tak Kiu and others) and key ingredients (kopi powder, condensed milk, evaporated milk). Each entry:
-the word, other spellings, Chinese where reviewed, meaning, where the word comes from, and an example
+the word, other spellings, meaning, where the word comes from, and an example
 order with a link that opens the builder set to that order. Terms in the builder link to their entry.
 Names always use **Peng**; Beng appears only as another spelling in the Peng entry. Dabao is taught here
 as a word for ordering in person; it is not a builder choice.
@@ -156,8 +156,9 @@ with hot water and knives; the feedback form (when present) does not ask for nam
 - All text is original. Plain language; any term is explained where it first appears.
 - Drawn cups only, no photographs.
 - No alcohol anywhere, including hidden sources (5.6).
-- Content is drafted, then reviewed by the owner drink by drink and term by term before sharing. Chinese
-  characters ship only once the owner has confirmed them.
+- Content is drafted, then reviewed by the owner drink by drink and term by term before sharing.
+- Chinese characters appear on drink names only, never on ordering terms, and ship only once the owner
+  has confirmed them. A drink without a common Chinese name shows none.
 
 ### 5.2 Files
 
@@ -183,7 +184,7 @@ with hot water and knives; the feedback form (when present) does not ask for nam
 | Field | Notes |
 |---|---|
 | `id`, `name` | As First Pour. `words` is reserved and cannot be a drink id. |
-| `chinese` | Optional Chinese name |
+| `chinese` | Optional Chinese name, kopitiam drinks only. The only place Chinese appears besides the header. |
 | `room` | `kopitiam` or `cafe` |
 | `group` | Kopitiam: `kopi`, `teh`, `malt-and-chocolate`, `cooling`. Café: `coffee`, `tea-and-matcha`. |
 | `cup` | `kopitiam-cup`, `peng-glass`, `cafe-cup`, `tall-glass`, `mug` |
@@ -211,7 +212,7 @@ Choice groups and their options, defined once in `choices.ts`. A drink allows a 
 | `temp` | `hot` (—), `peng` (Peng) |
 
 Each option also has a plain meaning ("evaporated milk", "less sweet") and a `termId`. Terms
-(`terms.json`) have `id`, `word`, `also` (other spellings, such as Beng), `chinese?`, `meaning`, `origin`,
+(`terms.json`) have `id`, `word`, `also` (other spellings, such as Beng), `meaning`, `origin`,
 `example` (a drink id with choices).
 
 Draft choices per drink (for owner review):
@@ -558,11 +559,11 @@ Settled with the owner:
 3. Word order is milk, strength, sugar, temp: "Kopi O Gau Kosong Peng".
 4. Names use **Peng**.
 5. Di Lo means undiluted and is offered by every drink whose recipe adds water (5.5).
-
-Still open for owner review:
-
-6. Choices per drink in the table in 5.5, and the launch list in 5.7.
-7. Chinese names and characters for each drink and term.
+6. The choices per drink in 5.5 and the launch list in 5.7 are agreed.
+7. Chinese characters on drink names only (5.1). Drafted: Kopi 咖啡, Teh 茶, Yuan Yang 鸳鸯, Teh Tarik 拉茶,
+   Milo 美禄, Horlicks 好立克, Barley 薏米水, Water Chestnut 马蹄水, Chrysanthemum 菊花茶, Lime Juice 酸柑水.
+   Teh Halia, Soya Bean Milk, Bandung and Milo Dinosaur are drafted during content work; any without a
+   common Chinese name show none. The owner confirms every one in the content review.
 
 ## 14. Later
 
