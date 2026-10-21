@@ -1,0 +1,150 @@
+[
+  {
+    "id": "kopi-powder",
+    "name": "Kopi powder",
+    "category": "coffee",
+    "description": "Coffee beans, mostly robusta, roasted dark with sugar and margarine and ground fine. Bold, smoky and slightly caramel.",
+    "unit": "g",
+    "caffeineMg": 10,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#3b2416",
+    "caffeineSource": "Draft value, replaced in Task 21"
+  },
+  {
+    "id": "tea-dust",
+    "name": "Tea dust",
+    "category": "tea",
+    "description": "Finely broken black tea leaves that brew strong, dark and slightly bitter in minutes.",
+    "unit": "g",
+    "caffeineMg": 6,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#808080",
+    "caffeineSource": "Draft value, replaced in Task 21"
+  },
+  {
+    "id": "condensed-milk",
+    "name": "Condensed milk",
+    "category": "milk",
+    "description": "Milk cooked down with sugar until thick and sweet. It sweetens and whitens a drink in one spoonful.",
+    "unit": "tbsp",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy"
+    ],
+    "substitutes": [],
+    "colour": "#808080",
+    "termId": "condensed-milk"
+  },
+  {
+    "id": "evaporated-milk",
+    "name": "Evaporated milk",
+    "category": "milk",
+    "description": "Milk cooked down without sugar. Creamy and a little toasty, it whitens without sweetening.",
+    "unit": "tbsp",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy"
+    ],
+    "substitutes": [],
+    "colour": "#808080"
+  },
+  {
+    "id": "sugar",
+    "name": "Sugar",
+    "category": "staple",
+    "description": "Plain white sugar. It dissolves fastest in a hot drink.",
+    "unit": "tsp",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#808080"
+  },
+  {
+    "id": "boiling-water",
+    "name": "Boiling water",
+    "category": "staple",
+    "description": "Water just off the boil, for brewing.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#808080"
+  },
+  {
+    "id": "water",
+    "name": "Water",
+    "category": "staple",
+    "description": "Plain water, hot for a hot drink or cold for an iced one, to lengthen it.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#808080"
+  },
+  {
+    "id": "ice",
+    "name": "Ice",
+    "category": "staple",
+    "description": "Ice cubes.",
+    "unit": "piece",
+    "caffeineMg": 0,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#808080"
+  },
+  {
+    "id": "milo-powder",
+    "name": "Milo powder",
+    "category": "malt-and-chocolate",
+    "description": "A malted chocolate drink powder made from barley malt, milk and cocoa.",
+    "unit": "tbsp",
+    "caffeineMg": 2,
+    "allergens": [
+      "dairy",
+      "gluten"
+    ],
+    "substitutes": [],
+    "colour": "#808080",
+    "caffeineSource": "Draft value, replaced in Task 21"
+  },
+  {
+    "id": "pearl-barley",
+    "name": "Pearl barley",
+    "category": "fresh",
+    "description": "Polished barley grains that turn soft and give their water a gentle, nutty flavour.",
+    "unit": "g",
+    "caffeineMg": 0,
+    "allergens": [
+      "gluten"
+    ],
+    "substitutes": [],
+    "colour": "#808080"
+  },
+  {
+    "id": "espresso",
+    "name": "Espresso",
+    "category": "coffee",
+    "description": "A small, strong shot of coffee pressed through finely ground beans.",
+    "unit": "ml",
+    "caffeineMg": 2,
+    "allergens": [],
+    "substitutes": [],
+    "colour": "#808080",
+    "caffeineSource": "Draft value, replaced in Task 21"
+  },
+  {
+    "id": "milk",
+    "name": "Milk",
+    "category": "milk",
+    "description": "Fresh full-cream milk. It steams and froths best cold from the fridge.",
+    "unit": "ml",
+    "caffeineMg": 0,
+    "allergens": [
+      "dairy"
+    ],
+    "substitutes": [],
+    "colour": "#808080"
+  }
+]

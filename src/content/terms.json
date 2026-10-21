@@ -1,0 +1,80 @@
+[
+  {
+    "id": "condensed-milk",
+    "word": "Condensed milk",
+    "also": [],
+    "meaning": "Thick, sweetened milk. A plain Kopi or Teh is made with it unless you say otherwise.",
+    "origin": "Tinned condensed milk kept well without a fridge, so kopitiams used it from the start."
+  },
+  {
+    "id": "o",
+    "word": "O",
+    "also": [],
+    "meaning": "No milk: black, with sugar unless you ask otherwise.",
+    "origin": "From the Hokkien word for black."
+  },
+  {
+    "id": "c",
+    "word": "C",
+    "also": [],
+    "meaning": "Evaporated milk instead of condensed milk, with sugar added separately.",
+    "origin": "Often said to come from the Hainanese word for fresh, or from the Carnation brand of evaporated milk."
+  },
+  {
+    "id": "kosong",
+    "word": "Kosong",
+    "also": [],
+    "meaning": "No sugar.",
+    "origin": "Malay for empty or zero."
+  },
+  {
+    "id": "siew-dai",
+    "word": "Siew Dai",
+    "also": [],
+    "meaning": "Less sweet.",
+    "origin": "From the Hokkien for less sweet."
+  },
+  {
+    "id": "ga-dai",
+    "word": "Ga Dai",
+    "also": [],
+    "meaning": "Sweeter: more sugar than usual.",
+    "origin": "From the Hokkien for add sweet."
+  },
+  {
+    "id": "gau",
+    "word": "Gau",
+    "also": [],
+    "meaning": "Stronger: more coffee or tea.",
+    "origin": "From the Hokkien for thick."
+  },
+  {
+    "id": "po",
+    "word": "Po",
+    "also": [],
+    "meaning": "Weaker: less coffee or tea, more water.",
+    "origin": "From the Hokkien for thin."
+  },
+  {
+    "id": "di-lo",
+    "word": "Di Lo",
+    "also": [],
+    "meaning": "Undiluted: no water added after brewing, so it is as strong as it gets.",
+    "origin": "From the Hokkien for straight down, meaning straight from the brew."
+  },
+  {
+    "id": "peng",
+    "word": "Peng",
+    "also": [
+      "Beng"
+    ],
+    "meaning": "Iced.",
+    "origin": "From the Hokkien for ice. Also said Beng.",
+    "example": {
+      "drinkId": "kopi",
+      "choices": {
+        "temp": "peng"
+      }
+    }
+  }
+]
