@@ -1,15 +1,13 @@
 import { useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { AllergenInfo } from '../components/AllergenInfo'
 import { CaffeineInfo } from '../components/CaffeineInfo'
 import { ChoiceRow } from '../components/ChoiceRow'
 import { Cup } from '../components/Cup'
 import { Icon } from '../components/Icon'
-import { Measure } from '../components/Measure'
+import { RecipeDetails } from '../components/RecipeDetails'
 import { CHOICE_GROUPS, GROUP_LABELS, OPTIONS, findOption, type ChoiceGroup } from '../content/choices'
 import { useContent } from '../content/ContentContext'
 import type { CupId, Drink } from '../content/schema'
-import { orderAllergens } from '../core/allergens'
 import { caffeineOf } from '../core/caffeine'
 import { cupExtras } from '../core/cupExtras'
 import {
@@ -104,7 +102,7 @@ function Builder({ drink }: { drink: Drink }) {
         })}
       </div>
 
-      <CaffeineInfo caffeine={caffeine} />
+      <CaffeineInfo caffeine={caffeine} room="kopitiam" />
 
       <div className="order-actions">
         <Link className="button primary" to={`/kopitiam/${drink.id}/make${search ? `?${search}` : ''}`}>
@@ -139,45 +137,7 @@ function Builder({ drink }: { drink: Drink }) {
         )}
       </section>
 
-      <section className="stack-sm" aria-labelledby="ingredients-heading">
-        <h2 id="ingredients-heading">Ingredients</h2>
-        <ul className="plain-list ingredient-rows" aria-label="Ingredients">
-          {order.lines.map((line) => {
-            const ingredient = ingredientById.get(line.ingredientId)!
-            return (
-              <li key={line.ingredientId}>
-                <Measure amount={line.amount} unit={ingredient.unit} />
-                <span>
-                  {ingredient.name}
-                  {line.optional && <span className="muted small"> (optional)</span>}
-                  {line.note && <span className="muted small"> · {line.note}</span>}
-                </span>
-              </li>
-            )
-          })}
-        </ul>
-      </section>
-
-      {drink.tools.length > 0 && (
-        <section className="stack-sm" aria-labelledby="tools-heading">
-          <h2 id="tools-heading">You'll need</h2>
-          <ul className="plain-list stack-sm">
-            {drink.tools.map((tool) => (
-              <li key={tool.name}>
-                {tool.name}
-                <span className="muted small"> · or {tool.alternative}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <AllergenInfo allergens={orderAllergens(order.lines, ingredientById)} />
-
-      <section className="stack-sm" aria-labelledby="about-heading">
-        <h2 id="about-heading">About {drink.name}</h2>
-        <p className="prose">{drink.about}</p>
-      </section>
+      <RecipeDetails order={order} />
     </article>
   )
 }

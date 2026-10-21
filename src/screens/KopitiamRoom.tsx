@@ -1,12 +1,11 @@
 import { useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Cup } from '../components/Cup'
-import { CupLink } from '../components/CupLink'
 import { Icon } from '../components/Icon'
+import { MenuRow } from '../components/MenuRow'
 import { SEAL_CHINESE, SIGNBOARD_CHINESE } from '../content/chineseUi'
 import { useContent } from '../content/ContentContext'
-import { KOPITIAM_GROUPS, type Drink } from '../content/schema'
-import { caffeineOf, LEVEL_NAMES } from '../core/caffeine'
+import { KOPITIAM_GROUPS } from '../content/schema'
 import { cupExtras } from '../core/cupExtras'
 import { GROUP_CHIPS, GROUP_NAMES } from '../core/labels'
 import { choicesToSearch, resolveOrder } from '../core/order'
@@ -15,24 +14,6 @@ import { useUserData } from '../storage/UserDataContext'
 
 const oneOf = <T extends string>(allowed: readonly T[], value: string | null): T | undefined =>
   allowed.find((a) => a === value)
-
-function MenuRow({ drink }: { drink: Drink }) {
-  const { ingredientById } = useContent()
-  const order = resolveOrder(drink)
-  const caffeine = caffeineOf(order.lines, ingredientById)
-  return (
-    <CupLink to={`/kopitiam/${drink.id}`} className="menu-row">
-      <Cup cup={order.cup} colour={order.colour} id={`menu:${drink.id}`} />
-      <span className="menu-name">{drink.name}</span>
-      {drink.chinese && (
-        <span className="menu-zh" lang="zh-Hans">
-          {drink.chinese}
-        </span>
-      )}
-      <span className={caffeine.level === 'none' ? 'menu-level none' : 'menu-level'}>{LEVEL_NAMES[caffeine.level]}</span>
-    </CupLink>
-  )
-}
 
 function Usual() {
   const { drinkById } = useContent()
