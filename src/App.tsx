@@ -2,6 +2,7 @@ import { useLayoutEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Layout } from './components/Layout'
 import { RouteChange } from './components/RouteChange'
+import { KopitiamRoom } from './screens/KopitiamRoom'
 import { NotFound } from './screens/NotFound'
 import { Terms } from './screens/Terms'
 import { useUserData } from './storage/UserDataContext'
@@ -26,7 +27,7 @@ export default function App() {
         <Route path="/kopitiam/:id/make" element={<Placeholder name="Making" />} />
         <Route path="/cafe/:id/make" element={<Placeholder name="Making" />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Placeholder name="Kopitiam" />} />
+          <Route path="/" element={<KopitiamRoom />} />
           <Route path="/kopitiam/:id" element={<Placeholder name="Order" />} />
           <Route path="/words" element={<Placeholder name="Kopitiam words" />} />
           <Route path="/cafe" element={<Placeholder name="Café" />} />

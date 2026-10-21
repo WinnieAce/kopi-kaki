@@ -679,3 +679,151 @@ h1:focus {
     transform: scale(0.97);
   }
 }
+
+/* The Kopitiam room: a teak signboard with gold-cream lettering and a vermilion seal, then a strip of
+   mosaic floor tile. Plain marble below; no veining. */
+.signboard {
+  position: relative;
+  padding: 0.9rem 1rem 0.8rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: var(--header, var(--text));
+  color: var(--on-header, var(--bg));
+}
+.signboard h1 {
+  font-family: var(--display-kopitiam);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.signboard-zh {
+  font-size: 2.3rem;
+  line-height: 1.05;
+  margin-top: 0.15rem;
+}
+.seal {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.3rem;
+  background: var(--seal, #a63d27);
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+.mosaic {
+  height: 9px;
+  margin-top: -1.25rem; /* sits flush under the signboard, against the stack gap */
+  border-radius: 0 0 0.3rem 0.3rem;
+  background: repeating-linear-gradient(
+    90deg,
+    #2b6655 0 9px,
+    #f4ecdf 9px 18px,
+    #a63d27 18px 22px,
+    #f4ecdf 22px 31px
+  );
+}
+:root[data-theme='dark'] .mosaic {
+  background: repeating-linear-gradient(90deg, #2f6a58 0 9px, #cfc4b2 9px 18px, #9a3d2a 18px 22px, #cfc4b2 22px 31px);
+}
+
+.usual {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0.8rem 0.4rem 0.4rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.usual .cup {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.usual-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.usual-make {
+  margin-left: auto;
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.search {
+  position: relative;
+}
+.search .icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+.search input {
+  padding-left: 2.7rem;
+}
+
+/* The menu: a list that stays still, grouped like a drinks stall. */
+.menu {
+  display: grid;
+  gap: 1.1rem;
+}
+.menu-group {
+  display: grid;
+  gap: 0.2rem;
+}
+.menu-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 3.25rem;
+  padding: 0.2rem 0.1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+.menu-group li:last-child .menu-row {
+  border-bottom: 0;
+}
+.menu-row .cup {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+.menu-name {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+:root[data-room='cafe'] .menu-name {
+  font-weight: 400;
+}
+.menu-zh {
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+.menu-level {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.menu-level.none {
+  color: var(--good);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .menu-row {
+    transition: transform var(--press) var(--ease-out);
+  }
+  .menu-row:active {
+    transform: scale(0.99);
+  }
+}
