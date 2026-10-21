@@ -114,8 +114,8 @@ as a word for ordering in person; it is not a builder choice.
 ### 4.5 Café room
 
 - A greeting in the display font, chosen by the hour.
-- **Today's cups**: a swipeable shelf, favourites first, then one easy drink per group that changes at
-  local midnight (First Pour's daily shelf). The cups tip with the swipe while the drink stays level.
+- **Today's cups**: a swipeable shelf, favourites first, then three easy drinks from each group that
+  change at local midnight (First Pour's daily shelf). The cups tip with the swipe while the drink stays level.
 - Filter chips **All · Coffee · Tea and matcha · No caffeine**, search, and the menu.
 
 ### 4.6 Café drink page
@@ -195,6 +195,7 @@ with hot water and knives; the feedback form (when present) does not ask for nam
 | `ingredients` | `{ ingredientId, amount, optional, note?, role?, when? }` |
 | `steps` | `{ text, technique?, ingredientIds, caution?, when? }` |
 | `tools` | `{ name, alternative }` |
+| `meaning` | A few words for the builder's meaning line ("Coffee", "Pearl barley water") |
 | `about` | 2–4 sentences: what it is and why it tastes the way it does |
 
 `role` is one of `sweet`, `strong`, `dilute`. `when` limits a line or step to certain choices, for example
@@ -327,8 +328,8 @@ combined with AND. Results sorted by menu order within each group.
 
 ### 6.7 Daily shelf
 
-First Pour's `dailyStarters`, per room: one easy drink per group, moving on each local midnight, the same
-all day and on every phone. The café shelf shows saved café drinks first, then the day's picks, up to 8.
+First Pour's `dailyStarters`, per room: three easy drinks from each group (one would give the Café room's
+two groups only two cups), moving on each local midnight, the same all day and on every phone. The café shelf shows saved café drinks first, then the day's picks, up to 8.
 
 ## 7. Look and motion
 
@@ -376,10 +377,10 @@ Kopi (Kopi's values kept). Kopi is the default.
 | Peng | `#f5efe7` `#fbf8f4` `#262c30` `#535a5e` `#d7d0c4` `#8b8984` `#676e72` `#b6b9b8` | `#0e1112` `#191d20` `#f5efe7` `#d7d0c4` `#363736` `#696863` `#b6b9b8` `#363b3d` |
 | Gula Melaka | `#f5ede4` `#fbf7f3` `#503523` `#7b5036` `#cfb59d` `#9f846f` `#946041` `#bf9377` | `#1e140d` `#352317` `#f5ede4` `#cfb59d` `#41342a` `#806d5d` `#bf9377` `#4e3222` |
 
-onAccent is `#ffffff` in light and the dark bg in dark. Each palette also carries First Pour's `good`,
-`warnBg` and `warnText` tokens (used for "No caffeine", the caffeine note and step cautions), derived by
-the same method: start from the palette's own hues and darken (light) or lighten (dark) until text reaches
-4.5:1. `palettes.test.ts` checks every pairing the app uses.
+onAccent is `#ffffff` in light and the dark bg in dark. Every palette also carries First Pour's `good`,
+`warnBg` and `warnText` tokens (used for "No caffeine", the caffeine note and step cautions), shared by
+all eight palettes: light `#2b6655`, `#f6ecd8`, `#5a3d12`; dark `#79b9a3`, `#3d2c12`, `#f3d9a6`.
+`palettes.test.ts` checks every pairing the app uses.
 
 ### 7.3 Type
 
