@@ -12,16 +12,23 @@ import { fixtureContent } from './fixtures'
 
 export { createMemoryStore }
 
-type Options = { data?: UserData; store?: UserDataStore; route?: string; content?: Content }
+type Options = {
+  data?: UserData
+  store?: UserDataStore
+  route?: string
+  /** Earlier screens to start with, so Back has somewhere to go; the last one is shown. */
+  history?: string[]
+  content?: Content
+}
 
 /** Renders inside the router and providers, with the fixture content. A first visit unless `data` or `store` is given. */
-export function renderApp(ui: ReactElement, { data, store, route = '/', content = fixtureContent }: Options = {}) {
+export function renderApp(ui: ReactElement, { data, store, route = '/', history, content = fixtureContent }: Options = {}) {
   const usedStore = store ?? createMemoryStore(data ?? null)
   const user = userEvent.setup()
   const view = render(
     <ContentProvider value={makeContentValue(content)}>
       <UserDataProvider store={usedStore}>
-        <MemoryRouter initialEntries={[route]}>{ui}</MemoryRouter>
+        <MemoryRouter initialEntries={history ?? [route]}>{ui}</MemoryRouter>
       </UserDataProvider>
     </ContentProvider>,
   )

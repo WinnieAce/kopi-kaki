@@ -95,3 +95,27 @@ it('shows an ingredient’s note, such as how hot the water should be', async ()
   await open('/kopitiam/kopi/make')
   expect(row('Boiling water')).toHaveTextContent('just off the boil')
 })
+
+it('Done goes back to where you came from, so Back then leaves the drink', async () => {
+  const { user } = renderApp(<><App /><LocationProbe /></>, {
+    data: defaultUserData(),
+    history: ['/', '/kopitiam/kopi?milk=o', '/kopitiam/kopi/make?milk=o'],
+  })
+  await screen.findByRole('heading', { level: 1, name: 'Kopi O' })
+  await user.click(screen.getByRole('button', { name: 'Start' }))
+  while (!screen.queryByRole('button', { name: 'Done' })) await user.click(screen.getByRole('button', { name: 'Next' }))
+  await user.click(screen.getByRole('button', { name: 'Done' }))
+  expect(screen.getByTestId('location')).toHaveTextContent('/kopitiam/kopi?milk=o')
+  await user.click(await screen.findByRole('button', { name: 'Back' }))
+  expect(screen.getByTestId('location')).toHaveTextContent(/^\/$/)
+})
+
+it('Close also goes back to where you came from', async () => {
+  const { user } = renderApp(<><App /><LocationProbe /></>, {
+    data: defaultUserData(),
+    history: ['/', '/kopitiam/kopi/make?milk=c'],
+  })
+  await screen.findByRole('heading', { level: 1, name: 'Kopi C' })
+  await user.click(screen.getByRole('button', { name: 'Close' }))
+  expect(screen.getByTestId('location')).toHaveTextContent(/^\/$/)
+})

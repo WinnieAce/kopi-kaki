@@ -10,6 +10,7 @@ import { cupExtras } from '../core/cupExtras'
 import { GROUP_CHIPS, GROUP_NAMES } from '../core/labels'
 import { choicesToSearch, resolveOrder } from '../core/order'
 import { filterDrinks } from '../core/search'
+import { restLoops } from '../hooks/loopRest'
 import { useUserData } from '../storage/UserDataContext'
 
 const oneOf = <T extends string>(allowed: readonly T[], value: string | null): T | undefined =>
@@ -23,7 +24,7 @@ function Usual() {
   const order = resolveOrder(drink, data.usual.choices)
   const search = choicesToSearch(order)
   return (
-    <section className="usual" aria-labelledby="usual-heading">
+    <section className="usual" aria-labelledby="usual-heading" ref={restLoops}>
       <Cup cup={order.cup} colour={order.colour} extras={cupExtras(order)} />
       <div>
         <h2 id="usual-heading" className="label">

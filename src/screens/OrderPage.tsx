@@ -102,7 +102,10 @@ function Builder({ drink }: { drink: Drink }) {
         })}
       </div>
 
-      <CaffeineInfo caffeine={caffeine} room="kopitiam" />
+      <CaffeineInfo
+        caffeine={caffeine}
+        suggestPo={(drink.choices.strength?.options.includes('po') ?? false) && order.choices.strength !== 'po'}
+      />
 
       <div className="order-actions">
         <Link className="button primary" to={`/kopitiam/${drink.id}/make${search ? `?${search}` : ''}`}>

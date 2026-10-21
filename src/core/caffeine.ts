@@ -21,8 +21,8 @@ export const LEVEL_NAMES: Record<CaffeineLevel, string> = {
 
 export const HIGH_CAFFEINE_NOTE =
   'Caffeine affects children more strongly. A Po order, a smaller cup or a caffeine-free drink may suit them better.'
-/** The same note for café drinks, where Po is not a word you can order with. */
-export const HIGH_CAFFEINE_NOTE_CAFE =
+/** The same note where Po cannot help: café drinks, drinks with no Po, and orders that are already Po. */
+export const HIGH_CAFFEINE_NOTE_PLAIN =
   'Caffeine affects children more strongly. A smaller cup or a caffeine-free drink may suit them better.'
 export const CAFFEINE_ESTIMATE_NOTE = 'Caffeine figures are estimates and vary by brand and brewing.'
 export const COCOA_NOTE = 'A trace, from the cocoa.'

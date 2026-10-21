@@ -1,7 +1,7 @@
 import { screen, within } from '@testing-library/react'
 import App from '../App'
 import { ALLERGEN_LABEL_NOTE } from '../core/allergens'
-import { HIGH_CAFFEINE_NOTE_CAFE } from '../core/caffeine'
+import { HIGH_CAFFEINE_NOTE_PLAIN } from '../core/caffeine'
 import { defaultUserData } from '../storage/userData'
 import { expectAccessible, renderApp } from '../test/render'
 
@@ -15,7 +15,7 @@ it('shows the drink', async () => {
   await open()
   expect(screen.getByRole('heading', { level: 1, name: 'Flat White' })).toBeInTheDocument()
   expect(screen.getByText('about 120 mg')).toBeInTheDocument()
-  expect(screen.getByText(HIGH_CAFFEINE_NOTE_CAFE)).toBeInTheDocument()
+  expect(screen.getByText(HIGH_CAFFEINE_NOTE_PLAIN)).toBeInTheDocument()
   expect(screen.queryByText(/Po order/)).not.toBeInTheDocument()
   expect(screen.getByText(/A double espresso with a little velvety milk/)).toBeInTheDocument()
   const ingredients = screen.getByRole('list', { name: 'Ingredients' })

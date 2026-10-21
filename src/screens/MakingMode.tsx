@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, type Variants } from 'motion/react'
 import { useState } from 'react'
-import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { Icon } from '../components/Icon'
 import { Measure } from '../components/Measure'
 import { useContent } from '../content/ContentContext'
@@ -74,6 +74,7 @@ export function MakingMode({ room }: { room: Room }) {
   const { id } = useParams()
   const [params] = useSearchParams()
   const navigate = useNavigate()
+  const location = useLocation()
   const { drinkById, ingredientById } = useContent()
   const [servings, setServings] = useState(MIN_SERVINGS)
   // Screen 0 is "gather everything"; screens 1..n are the steps. The direction of the last move
@@ -100,16 +101,19 @@ export function MakingMode({ room }: { room: Room }) {
   const technique = step?.technique ? TECHNIQUES[step.technique] : null
   const shown = step ? order.lines.filter((l) => step.ingredientIds.includes(l.ingredientId)) : order.lines
 
-  const forward = () => (isLast ? navigate(drinkPage) : show(screen + 1))
+  // Leaving goes back to wherever the person came from, so Back on that screen does not loop into
+  // making mode again. Opened directly, it replaces itself with the drink page.
+  const leave = () => (location.key !== 'default' ? navigate(-1) : navigate(drinkPage, { replace: true }))
+  const forward = () => (isLast ? leave() : show(screen + 1))
   const backward = () => screen > 0 && show(screen - 1)
 
   return (
     <main className="making">
       <header className="making-top">
-        <Link to={drinkPage} className="back">
-          <Icon name="back" />
-          Back to {order.name}
-        </Link>
+        <button className="back" onClick={leave}>
+          <Icon name="close" />
+          Close
+        </button>
         <h1>{order.name}</h1>
         <div className="stepper">
           <button

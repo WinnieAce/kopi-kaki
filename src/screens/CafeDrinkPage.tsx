@@ -34,7 +34,7 @@ export function CafeDrinkPage() {
         <p className="order-meaning">{drink.meaning}</p>
       </header>
 
-      <CaffeineInfo caffeine={caffeineOf(order.lines, ingredientById)} room="cafe" />
+      <CaffeineInfo caffeine={caffeineOf(order.lines, ingredientById)} suggestPo={false} />
 
       <div className="order-actions">
         <Link className="button primary" to={`/cafe/${drink.id}/make`}>

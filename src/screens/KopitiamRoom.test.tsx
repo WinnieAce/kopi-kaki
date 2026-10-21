@@ -1,4 +1,4 @@
-import { screen, within } from '@testing-library/react'
+import { screen, waitFor, within } from '@testing-library/react'
 import App from '../App'
 import { defaultUserData, type UserData } from '../storage/userData'
 import { expectAccessible, LocationProbe, renderApp } from '../test/render'
@@ -83,3 +83,9 @@ it('has no axe violations', async () => {
   await screen.findByRole('heading', { level: 1 })
   await expectAccessible()
 })
+
+it('lets the usual cup’s steam rest after a few seconds', async () => {
+  open({ ...defaultUserData(), usual: { drinkId: 'kopi', choices: {} } })
+  const usual = await screen.findByRole('region', { name: 'Your usual' })
+  await waitFor(() => expect(usual).toHaveClass('resting'), { timeout: 6500 })
+}, 9000)

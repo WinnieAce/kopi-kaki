@@ -1,8 +1,9 @@
 import { screen, within } from '@testing-library/react'
 import App from '../App'
 import { ALLERGEN_LABEL_NOTE } from '../core/allergens'
-import { HIGH_CAFFEINE_NOTE } from '../core/caffeine'
+import { HIGH_CAFFEINE_NOTE, HIGH_CAFFEINE_NOTE_PLAIN } from '../core/caffeine'
 import { defaultUserData } from '../storage/userData'
+import { fixtureContent } from '../test/fixtures'
 import { expectAccessible, LocationProbe, renderApp } from '../test/render'
 
 const reason = 'Condensed milk is already sweet, so it can’t be Kosong. For no sugar, choose O or C.'
@@ -109,4 +110,30 @@ it.each(['/kopitiam/nope', '/kopitiam/flat-white'])('%s is not found', async (ro
 it('has no axe violations', async () => {
   await open('/kopitiam/kopi?milk=c')
   await expectAccessible()
+})
+
+describe('the high-caffeine note', () => {
+  // Stronger ingredients, so a Po kopi and a plain Milo are both High.
+  const strong = structuredClone(fixtureContent)
+  strong.ingredients.find((i) => i.id === 'kopi-powder')!.caffeineMg = 20
+  strong.ingredients.find((i) => i.id === 'milo-powder')!.caffeineMg = 50
+  const show = async (route: string) => {
+    renderApp(<App />, { data: defaultUserData(), route, content: strong })
+    await screen.findByRole('heading', { level: 1 })
+  }
+
+  it('suggests Po when the drink offers it', async () => {
+    await show('/kopitiam/kopi')
+    expect(screen.getByText(HIGH_CAFFEINE_NOTE)).toBeInTheDocument()
+  })
+
+  it('does not suggest Po on an order that is already Po', async () => {
+    await show('/kopitiam/kopi?strength=po')
+    expect(screen.getByText(HIGH_CAFFEINE_NOTE_PLAIN)).toBeInTheDocument()
+  })
+
+  it('does not suggest Po for a drink that has no Po', async () => {
+    await show('/kopitiam/milo')
+    expect(screen.getByText(HIGH_CAFFEINE_NOTE_PLAIN)).toBeInTheDocument()
+  })
 })
