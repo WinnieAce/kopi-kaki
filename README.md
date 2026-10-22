@@ -85,8 +85,9 @@ build command `npm run build`. `wrangler.json` tells Cloudflare to serve `dist`,
 `/kopitiam/kopi?milk=o` to `index.html`, and to build a preview of every branch (its `previews` block, which
 `wrangler preview` needs). A push to `main` deploys the live site; a push to any other branch makes a preview.
 
-While the app is shared with friends and family, `public/robots.txt` asks search engines not to index it. To show the
-"Send feedback" link, set `FEEDBACK_URL` in `src/config.ts` to a form that asks for no names or email addresses.
+While the app is shared with friends and family, `public/robots.txt` asks search engines not to index it. The
+"Send feedback" link in Settings opens `FEEDBACK_URL` from `src/config.ts`, a Google Form that asks for no names or
+email addresses. Swap it only for a form that also asks for none; an empty value hides the link.
 
 ## Updates and offline use
 
