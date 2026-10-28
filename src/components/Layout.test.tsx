@@ -20,12 +20,12 @@ it('keeps the Kopitiam tab active on kopitiam pages', async () => {
   expect(document.documentElement.dataset.room).toBe('kopitiam')
 })
 
-it('has one highlight, so it can slide between tabs', async () => {
+it('has one highlight, placed by the tab’s position in the bar rather than measured on the page', async () => {
   open('/saved')
   const nav = await screen.findByRole('navigation', { name: 'Main' })
-  const pills = nav.querySelectorAll('.nav-pill')
-  expect(pills).toHaveLength(1)
-  expect(pills[0].closest('a')).toHaveTextContent('Saved')
+  expect(nav.querySelectorAll('.nav-pill')).toHaveLength(1)
+  expect(nav.style.getPropertyValue('--tab')).toBe('2')
+  expect(nav.style.getPropertyValue('--tabs')).toBe('4')
 })
 
 it('main tabs have no Back button', async () => {

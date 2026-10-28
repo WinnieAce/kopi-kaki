@@ -9,6 +9,7 @@ const NAME = 'drink-cup'
 
 let settle: (() => void) | null = null
 let lastCup: string | null = null
+let latest: ViewTransition | null = null
 
 const cups = () => document.querySelectorAll<SVGElement>('svg.cup[data-cup]')
 
@@ -49,7 +50,7 @@ export function withViewTransition(go: () => void, { fadeWhenReduced = false } =
     go()
     return
   }
-  document.startViewTransition(
+  const transition = document.startViewTransition(
     () =>
       new Promise<void>((resolve) => {
         settle = resolve
@@ -60,6 +61,13 @@ export function withViewTransition(go: () => void, { fadeWhenReduced = false } =
         }, 600)
       }),
   )
+  latest = transition
+  // A cup is named only for the glide it is part of. Left named, it would get its own layer in the
+  // next transition too, fading on its own after the rest of the page has gone. A transition cut short
+  // by a newer one leaves the newer one's cup alone.
+  void transition.finished.finally(() => {
+    if (latest === transition) nameOnly(null)
+  })
 }
 
 /**
