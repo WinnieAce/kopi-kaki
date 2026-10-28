@@ -201,6 +201,8 @@ h1:focus {
 
 /* A translucent floating pill in place of a bar across the bottom. */
 .nav {
+  --nav-pad: 0.3rem;
+  --nav-gap: 0.25rem;
   position: fixed;
   left: 50%;
   bottom: calc(0.75rem + env(safe-area-inset-bottom));
@@ -208,8 +210,8 @@ h1:focus {
   z-index: 2;
   width: min(calc(100% - 1.5rem), 26rem);
   display: flex;
-  gap: 0.25rem;
-  padding: 0.3rem;
+  gap: var(--nav-gap);
+  padding: var(--nav-pad);
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface) 72%, transparent);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -236,11 +238,14 @@ h1:focus {
 .nav a[aria-current='page'] {
   color: var(--on-accent);
 }
+/* One tab wide, moved along by whole tabs (its own width plus the gap), so it never needs measuring. */
 .nav-pill {
   position: absolute;
-  inset: 0;
+  inset: var(--nav-pad) auto var(--nav-pad) var(--nav-pad);
+  width: calc((100% - 2 * var(--nav-pad) - (var(--tabs) - 1) * var(--nav-gap)) / var(--tabs));
   border-radius: 999px;
   background: var(--accent);
+  transform: translateX(calc(var(--tab) * (100% + var(--nav-gap))));
 }
 .nav-label {
   position: relative; /* above the sliding highlight */
@@ -399,6 +404,11 @@ h1:focus {
 .nav {
   view-transition-name: nav;
 }
+/* Switching tabs moves the whole screen together. No cup glides between rooms, so none gets a layer
+   of its own (the important beats the name a glide sets on a cup directly). */
+:root[data-nav-direction] svg.cup {
+  view-transition-name: none !important;
+}
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 200ms;
@@ -467,6 +477,11 @@ h1:focus {
   .nav a:active,
   .back:active {
     transform: scale(0.97);
+  }
+  /* The tab highlight slides to the tapped tab. A transition, so a second tap mid-slide redirects it
+     from wherever it is; on transform alone, so it stays smooth while the new screen is drawn. */
+  .nav-pill {
+    transition: transform 350ms var(--ease-out);
   }
   /* Hover effects only for a real pointer: on a phone they would stick after a tap. */
   @media (hover: hover) and (pointer: fine) {

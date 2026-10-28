@@ -24,7 +24,7 @@ it('navigates straight away, without a transition, for anyone who has asked for 
 })
 
 it('still cross-fades, without movement, for reduced motion when asked to', () => {
-  const start = vi.fn()
+  const start = vi.fn(() => ({ finished: Promise.resolve() }) as unknown as ViewTransition)
   document.startViewTransition = start
   vi.stubGlobal('matchMedia', (query: string) => ({ matches: query.includes('reduce') }))
   withViewTransition(() => {}, { fadeWhenReduced: true })
@@ -68,6 +68,43 @@ it('names the same cup again on the way back, so the drink glides home to where 
   const [menuCup, shelfCup] = document.querySelectorAll<SVGElement>('.cup')
   expect(shelfCup.style.viewTransitionName).toBe('drink-cup')
   expect(menuCup.style.viewTransitionName).toBe('')
+})
+
+/** A stand-in for the browser's view transitions whose `finished` the test decides. */
+function controlledTransitions() {
+  const finishers: (() => void)[] = []
+  document.startViewTransition = ((callback: () => Promise<void>) => {
+    void callback()
+    const finished = new Promise<void>((resolve) => finishers.push(resolve))
+    return { finished, updateCallbackDone: finished, ready: finished }
+  }) as unknown as typeof document.startViewTransition
+  return { finish: async (n: number) => (finishers[n](), await Promise.resolve(), await Promise.resolve()) }
+}
+
+it('forgets the gliding cup once the transition has finished, so it fades with the page next time', async () => {
+  const transitions = controlledTransitions()
+  document.body.innerHTML = '<a><svg class="cup" data-cup="menu:milo"></svg></a>'
+  const cup = document.querySelector<SVGElement>('.cup')!
+  rememberCup(cup.closest('a')!)
+  withViewTransition(() => {})
+  routeRendered()
+  expect(cup.style.viewTransitionName).toBe('drink-cup')
+  await transitions.finish(0)
+  expect(cup.style.viewTransitionName).toBe('')
+})
+
+it('keeps the cup named for a newer transition when an older one finishes late', async () => {
+  const transitions = controlledTransitions()
+  document.body.innerHTML = `
+    <a><svg class="cup" data-cup="menu:milo"></svg></a>
+    <a><svg class="cup" data-cup="menu:kopi"></svg></a>`
+  const [milo, kopi] = document.querySelectorAll<SVGElement>('.cup')
+  rememberCup(milo.closest('a')!)
+  withViewTransition(() => {})
+  rememberCup(kopi.closest('a')!)
+  withViewTransition(() => {})
+  await transitions.finish(0)
+  expect(kopi.style.viewTransitionName).toBe('drink-cup')
 })
 
 it('cross-fades a change made outside navigation, such as the theme', () => {

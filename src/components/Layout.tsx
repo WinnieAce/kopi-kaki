@@ -1,5 +1,4 @@
-import { motion } from 'motion/react'
-import type { MouseEvent } from 'react'
+import type { CSSProperties, MouseEvent } from 'react'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { withViewTransition } from '../hooks/viewTransition'
 import { useUserData } from '../storage/UserDataContext'
@@ -33,6 +32,7 @@ export function Layout() {
   const location = useLocation()
   const navigate = useNavigate()
   const current = tabFor(location.pathname)
+  const active = TABS.findIndex((t) => t.to === current)
   const isMainScreen = TABS.some((t) => t.to === location.pathname)
 
   // An installed app has no browser back button, so inner pages have their own.
@@ -44,10 +44,9 @@ export function Layout() {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
       return
     event.preventDefault()
-    const from = TABS.findIndex((t) => t.to === current)
     const next = TABS.findIndex((t) => t.to === to)
     const root = document.documentElement
-    root.dataset.navDirection = next < from ? 'left' : 'right'
+    root.dataset.navDirection = next < active ? 'left' : 'right'
     withViewTransition(() => navigate(to), { fadeWhenReduced: true })
     // Only tab switches drift; other screen changes plainly cross-fade.
     window.setTimeout(() => delete root.dataset.navDirection, 400)
@@ -71,25 +70,20 @@ export function Layout() {
       <main className="main">
         <Outlet />
       </main>
-      <nav className="nav" aria-label="Main">
-        {TABS.map((tab) => {
-          const active = tab.to === current
-          return (
-            <Link
-              key={tab.to}
-              to={tab.to}
-              aria-current={active ? 'page' : undefined}
-              onClick={(event) => switchTab(event, tab.to)}
-            >
-              {/* One highlight, shared between the tabs, so it slides to the new one. A critically
-                  damped spring: it arrives without overshooting. */}
-              {active && (
-                <motion.span className="nav-pill" layoutId="nav-pill" transition={{ type: 'spring', bounce: 0, duration: 0.35 }} />
-              )}
-              <span className="nav-label">{tab.label}</span>
-            </Link>
-          )
-        })}
+      <nav className="nav" aria-label="Main" style={{ '--tab': active, '--tabs': TABS.length } as CSSProperties}>
+        {/* One highlight for the whole bar, which slides to the chosen tab by whole tab widths. It is
+            never measured against the page, so a screen scrolled down cannot throw it off course. */}
+        {active >= 0 && <span className="nav-pill" />}
+        {TABS.map((tab, n) => (
+          <Link
+            key={tab.to}
+            to={tab.to}
+            aria-current={n === active ? 'page' : undefined}
+            onClick={(event) => switchTab(event, tab.to)}
+          >
+            <span className="nav-label">{tab.label}</span>
+          </Link>
+        ))}
       </nav>
     </div>
   )
